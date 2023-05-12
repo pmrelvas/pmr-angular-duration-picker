@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxPmrDurationPickerComponent } from './ngx-pmr-duration-picker.component';
+import { PmrDurationPickerComponent } from './pmr-duration-picker.component';
 
 describe('NgxPmrDurationPickerComponent', () => {
-  let component: NgxPmrDurationPickerComponent;
-  let fixture: ComponentFixture<NgxPmrDurationPickerComponent>;
+  let component: PmrDurationPickerComponent;
+  let fixture: ComponentFixture<PmrDurationPickerComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NgxPmrDurationPickerComponent]
+      declarations: [PmrDurationPickerComponent]
     });
-    fixture = TestBed.createComponent(NgxPmrDurationPickerComponent);
+    fixture = TestBed.createComponent(PmrDurationPickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
