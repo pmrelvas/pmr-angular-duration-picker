@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { NgxPmrDurationPickerComponent } from './ngx-pmr-duration-picker.component';
+import { PmrDurationPickerComponent } from './component/pmr-duration-picker/pmr-duration-picker.component';
 
 
 
 @NgModule({
   declarations: [
-    NgxPmrDurationPickerComponent
+    PmrDurationPickerComponent
   ],
   imports: [
   ],
   exports: [
-    NgxPmrDurationPickerComponent
+    PmrDurationPickerComponent
   ]
 })
 export class NgxPmrDurationPickerModule { }
