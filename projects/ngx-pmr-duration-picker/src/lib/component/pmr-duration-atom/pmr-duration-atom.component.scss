@@ -1,0 +1,36 @@
+.pmr-duration-atom-container {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 3em;
+  font-family: Roboto;
+
+  .pmr-duration-atom-label {
+    font-weight: 600;
+  }
+
+  .pmr-duration-atom-content {
+    border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;
+    width: 2.4em;
+
+    input.pmr-duration-atom-value {
+      margin: 0.2em 0;
+      font-size: 1.3em;
+      width: 1.5em;
+      text-align: center;
+      border: none;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input.pmr-duration-atom-value:focus {
+      outline: none;
+    }
+  }
+}
