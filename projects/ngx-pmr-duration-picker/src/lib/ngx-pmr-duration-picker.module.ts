@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PmrDurationPickerComponent } from './component/pmr-duration-picker/pmr-duration-picker.component';
 import { PmrDurationAtomComponent } from './component/pmr-duration-atom/pmr-duration-atom.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,6 +11,7 @@ import { PmrDurationAtomComponent } from './component/pmr-duration-atom/pmr-dura
     PmrDurationAtomComponent
   ],
   imports: [
+    FormsModule
   ],
   exports: [
     PmrDurationPickerComponent

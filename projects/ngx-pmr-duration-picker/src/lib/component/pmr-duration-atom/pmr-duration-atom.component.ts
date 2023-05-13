@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'pmr-duration-atom',
@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class PmrDurationAtomComponent {
 
   @Input() label = '';
+  @Input() value = 0;
+  @Output() valueChange = new EventEmitter<number>();
 
-  value = 0;
+  onValueChange(newVal: number): void {
+    this.valueChange.next(newVal);
+  }
 }
