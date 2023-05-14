@@ -1,59 +1,61 @@
 <section class="pmr-duration-picker">
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('Y')"
-    label="Y"
-    [value]="durationMap.get('Y') || 0"
-    (valueChange)="onValueChange('Y', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+  <section class="pmr-duration-picker-items">
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('Y')"
+      label="Y"
+      [value]="durationMap.get('Y') || 0"
+      (valueChange)="onValueChange('Y', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('M')"
-    label="M"
-    [value]="durationMap.get('M') || 0"
-    (valueChange)="onValueChange('M', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('M')"
+      label="M"
+      [value]="durationMap.get('M') || 0"
+      (valueChange)="onValueChange('M', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('W')"
-    label="W"
-    [value]="durationMap.get('W') || 0"
-    (valueChange)="onValueChange('W', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('W')"
+      label="W"
+      [value]="durationMap.get('W') || 0"
+      (valueChange)="onValueChange('W', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('D')"
-    label="D"
-    [value]="durationMap.get('D') || 0"
-    (valueChange)="onValueChange('D', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('D')"
+      label="D"
+      [value]="durationMap.get('D') || 0"
+      (valueChange)="onValueChange('D', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('TH')"
-    label="H"
-    [value]="durationMap.get('TH') || 0"
-    (valueChange)="onValueChange('TH', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('TH')"
+      label="H"
+      [value]="durationMap.get('TH') || 0"
+      (valueChange)="onValueChange('TH', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('TM')"
-    label="M"
-    [value]="durationMap.get('TM') || 0"
-    (valueChange)="onValueChange('TM', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('TM')"
+      label="M"
+      [value]="durationMap.get('TM') || 0"
+      (valueChange)="onValueChange('TM', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
 
-  <pmr-duration-atom
-    *ngIf="displayedItems.includes('TS')"
-    label="S"
-    [value]="durationMap.get('TS') || 0"
-    (valueChange)="onValueChange('TS', $event)"
-    [disabled]="isDisabled"
-  ></pmr-duration-atom>
+    <pmr-duration-atom
+      *ngIf="displayedItems.includes('TS')"
+      label="S"
+      [value]="durationMap.get('TS') || 0"
+      (valueChange)="onValueChange('TS', $event)"
+      [disabled]="isDisabled"
+    ></pmr-duration-atom>
+  </section>
 
-  <div>{{ durationStr }}</div>
+  <span class="pmr-duration-picker-label" *ngIf="!disableLabel">{{ durationStr }}</span>
 </section>

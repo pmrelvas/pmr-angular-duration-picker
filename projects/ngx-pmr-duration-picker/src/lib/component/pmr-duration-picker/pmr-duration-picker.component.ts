@@ -16,6 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
+  @Input() disableLabel = false;
 
   durationMap: Map<string, number> = new Map([
     ["Y", 0],

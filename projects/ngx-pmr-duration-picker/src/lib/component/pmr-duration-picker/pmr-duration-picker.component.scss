@@ -1,4 +1,14 @@
 .pmr-duration-picker {
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  .pmr-duration-picker-items {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pmr-duration-picker-label {
+    padding-left: 1em;
+  }
 }
