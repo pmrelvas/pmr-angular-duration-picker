@@ -1,24 +1,73 @@
 # NgxPmrDurationPicker
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+NgxPmrDurationPicker is a very simple angular component to handle durations on your angular application forms.
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project ngx-pmr-duration-picker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-pmr-duration-picker`.
-> Note: Don't forget to add `--project ngx-pmr-duration-picker` or else it will be added to the default project in your `angular.json` file. 
+This library can be installed through the following command:
+
+```
+npm install --save ngx-pmr-duration-picker
+```
+
+And on the `app.module.ts` or the module you want to import:
+```json
+@NgModule({
+  declarations: [...],
+  imports: [
+    NgxPmrDurationPickerModule,
+    ...
+  ],
+  providers: [...]
+})
+```
+## Component API
+
+### Input properties:
+
+| property | datatype | mandatory | description | default |
+| --- | --- | --- | --- | --- |
+| displayedItems | string[] | false | Allows to specify which duration items to display | ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'] |
+| disableLabel | boolean | false | Allow to remove duration string | false |
+
+## Examples of usage
+
+### With Form Control
+```html
+<form [formGroup]="formGroup">
+  <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
+</form>
+```
+
+### With ngModel
+```html
+<pmr-duration-picker [(ngModel)]="durationNgModel"></pmr-duration-picker>
+```
+
+### Only time properties
+```html
+<pmr-duration-picker [displayedItems]="['TH', 'TM', 'TS']" [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
+```
+
+### Without label
+```html
+<pmr-duration-picker [disableLabel]="true" [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
+```
+
+## Items
+
+| key | meaning |
+| --- | --- |
+| Y | Years |
+| W | Weeks |
+| M | Months |
+| D | Days |
+| TH | Hours |
+| TM | Minutes |
+| TS | Seconds |
 
 ## Build
 
 Run `ng build ngx-pmr-duration-picker` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Publishing
-
-After building your library with `ng build ngx-pmr-duration-picker`, go to the dist folder `cd dist/ngx-pmr-duration-picker` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ngx-pmr-duration-picker` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For local development it's recommended to use the `--watch` flag.
