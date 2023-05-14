@@ -11,6 +11,7 @@ export class AppComponent {
   formGroup = this.formBuilder.group({
     duration: ['PY1M2W3D4H5M6S7']
   });
+  durationNgModel = 'PY7M6W5D4H3M2S1';
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup.get('duration')?.valueChanges

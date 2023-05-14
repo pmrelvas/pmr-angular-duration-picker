@@ -1,4 +1,9 @@
+<h3>Form Control:</h3>
 <form [formGroup]="formGroup">
   <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
   <span>{{formGroup.value.duration}}</span>
 </form>
+
+<h3>NgModel</h3>
+<pmr-duration-picker [(ngModel)]="durationNgModel"></pmr-duration-picker>
+<span>{{durationNgModel}}</span>
