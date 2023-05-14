@@ -1,13 +1,14 @@
 .pmr-duration-atom-container {
-  background-color: pink;
+  font-family: Roboto;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 3em;
-  font-family: Roboto;
+  padding-bottom: 0.4em;
 
   .pmr-duration-atom-label {
     font-weight: 600;
+    padding-bottom: 0.2em;
   }
 
   .pmr-duration-atom-content {
