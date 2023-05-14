@@ -7,3 +7,7 @@
 <h3>NgModel</h3>
 <pmr-duration-picker [(ngModel)]="durationNgModel"></pmr-duration-picker>
 <span>{{durationNgModel}}</span>
+
+<h3>Only Time</h3>
+<pmr-duration-picker [displayedItems]="['TH', 'TM', 'TS']" [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
+<span>{{durationTimeOnly}}</span>

@@ -1,5 +1,6 @@
 <section class="pmr-duration-picker">
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('Y')"
     label="Y"
     [value]="durationMap.get('Y') || 0"
     (valueChange)="onValueChange('Y', $event)"
@@ -7,6 +8,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('M')"
     label="M"
     [value]="durationMap.get('M') || 0"
     (valueChange)="onValueChange('M', $event)"
@@ -14,6 +16,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('W')"
     label="W"
     [value]="durationMap.get('W') || 0"
     (valueChange)="onValueChange('W', $event)"
@@ -21,6 +24,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('D')"
     label="D"
     [value]="durationMap.get('D') || 0"
     (valueChange)="onValueChange('D', $event)"
@@ -28,6 +32,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('TH')"
     label="H"
     [value]="durationMap.get('TH') || 0"
     (valueChange)="onValueChange('TH', $event)"
@@ -35,6 +40,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('TM')"
     label="M"
     [value]="durationMap.get('TM') || 0"
     (valueChange)="onValueChange('TM', $event)"
@@ -42,6 +48,7 @@
   ></pmr-duration-atom>
 
   <pmr-duration-atom
+    *ngIf="displayedItems.includes('TS')"
     label="S"
     [value]="durationMap.get('TS') || 0"
     (valueChange)="onValueChange('TS', $event)"

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class PmrDurationPickerComponent implements ControlValueAccessor {
+
+  @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
 
   durationMap: Map<string, number> = new Map([
     ["Y", 0],
