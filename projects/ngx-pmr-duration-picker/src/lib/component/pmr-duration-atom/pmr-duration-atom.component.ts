@@ -9,6 +9,7 @@ export class PmrDurationAtomComponent {
 
   @Input() label = '';
   @Input() value = 0;
+  @Input() disabled = false;
   @Output() valueChange = new EventEmitter<number>();
 
   onValueChange(newVal: number): void {

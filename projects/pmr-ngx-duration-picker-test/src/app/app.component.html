@@ -1,1 +1,4 @@
-<pmr-duration-picker></pmr-duration-picker>
+<form [formGroup]="formGroup">
+  <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
+  <span>{{formGroup.value.duration}}</span>
+</form>

@@ -1,10 +1,52 @@
 <section class="pmr-duration-picker">
-  <pmr-duration-atom label="Y" [value]="durationMap.get('Y') || 0" (valueChange)="onValueChange('Y', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="M" [value]="durationMap.get('M') || 0" (valueChange)="onValueChange('M', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="W" [value]="durationMap.get('W') || 0" (valueChange)="onValueChange('W', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="D" [value]="durationMap.get('D') || 0" (valueChange)="onValueChange('D', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="H" [value]="durationMap.get('H') || 0" (valueChange)="onValueChange('H', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="M" [value]="durationMap.get('Min') || 0" (valueChange)="onValueChange('Min', $event)"></pmr-duration-atom>
-  <pmr-duration-atom label="S" [value]="durationMap.get('S') || 0" (valueChange)="onValueChange('S', $event)"></pmr-duration-atom>
-  <div>{{parsedDuration}}</div>
+  <pmr-duration-atom
+    label="Y"
+    [value]="durationMap.get('Y') || 0"
+    (valueChange)="onValueChange('Y', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="M"
+    [value]="durationMap.get('M') || 0"
+    (valueChange)="onValueChange('M', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="W"
+    [value]="durationMap.get('W') || 0"
+    (valueChange)="onValueChange('W', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="D"
+    [value]="durationMap.get('D') || 0"
+    (valueChange)="onValueChange('D', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="H"
+    [value]="durationMap.get('H') || 0"
+    (valueChange)="onValueChange('H', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="M"
+    [value]="durationMap.get('Min') || 0"
+    (valueChange)="onValueChange('Min', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <pmr-duration-atom
+    label="S"
+    [value]="durationMap.get('S') || 0"
+    (valueChange)="onValueChange('S', $event)"
+    [disabled]="isDisabled"
+  ></pmr-duration-atom>
+
+  <div>{{ parsedDuration }}</div>
 </section>

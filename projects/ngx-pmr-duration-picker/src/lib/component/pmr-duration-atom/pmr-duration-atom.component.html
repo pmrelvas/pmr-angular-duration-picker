@@ -6,6 +6,7 @@
       type="number"
       onclick="this.select();"
       [ngModel]="value"
+      [attr.disabled]="disabled"
       (ngModelChange)="onValueChange($event)"
     />
   </div>

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgxPmrDurationPickerModule } from 'ngx-pmr-duration-picker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,8 @@ import { NgxPmrDurationPickerModule } from 'ngx-pmr-duration-picker';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxPmrDurationPickerModule
   ],
   providers: [],
