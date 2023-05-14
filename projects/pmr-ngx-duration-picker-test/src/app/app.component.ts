@@ -9,9 +9,9 @@ import { FormBuilder } from '@angular/forms';
 export class AppComponent {
   title = 'pmr-ngx-duration-picker-test';
   formGroup = this.formBuilder.group({
-    duration: ['PY1M2W3D4H5M6S7']
+    duration: ['P1Y2M3W4DT5H6M7S']
   });
-  durationNgModel = 'PY7M6W5D4H3M2S1';
+  durationNgModel = 'P1Y2M3W4DT5H6M7S';
 
   constructor(private formBuilder: FormBuilder) {
     this.formGroup.get('duration')?.valueChanges

@@ -29,24 +29,24 @@
 
   <pmr-duration-atom
     label="H"
-    [value]="durationMap.get('H') || 0"
-    (valueChange)="onValueChange('H', $event)"
+    [value]="durationMap.get('TH') || 0"
+    (valueChange)="onValueChange('TH', $event)"
     [disabled]="isDisabled"
   ></pmr-duration-atom>
 
   <pmr-duration-atom
     label="M"
-    [value]="durationMap.get('Min') || 0"
-    (valueChange)="onValueChange('Min', $event)"
+    [value]="durationMap.get('TM') || 0"
+    (valueChange)="onValueChange('TM', $event)"
     [disabled]="isDisabled"
   ></pmr-duration-atom>
 
   <pmr-duration-atom
     label="S"
-    [value]="durationMap.get('S') || 0"
-    (valueChange)="onValueChange('S', $event)"
+    [value]="durationMap.get('TS') || 0"
+    (valueChange)="onValueChange('TS', $event)"
     [disabled]="isDisabled"
   ></pmr-duration-atom>
 
-  <div>{{ parsedDuration }}</div>
+  <div>{{ durationStr }}</div>
 </section>

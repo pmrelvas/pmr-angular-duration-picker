@@ -20,19 +20,20 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     ["M", 0],
     ["W", 0],
     ["D", 0],
-    ["H", 0],
-    ["Min", 0],
-    ["S", 0],
+    ["TH", 0],
+    ["TM", 0],
+    ["TS", 0],
   ]);
 
-  parsedDuration = this.buildParsedDuration();
+  durationStr = this.buildDurationStr();
   onChange = (durationStr: string) => {};
   onTouched = () => {};
   isTouched = false;
   isDisabled = false;
 
   writeValue(durationStr: string): void {
-    this.parsedDuration = durationStr;
+    this.durationStr = durationStr;
+    this.durationMap = this.parseDuration(this.durationStr);
   }
 
   registerOnChange(fn: any): void {
@@ -47,21 +48,50 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     this.isDisabled = isDisabled;
   }
 
-  buildParsedDuration(): string {
+  buildDurationStr(): string {
     return "PY" + this.durationMap.get('Y')
       + "M" + this.durationMap.get('M')
       + "W" + this.durationMap.get('W')
       + "D" + this.durationMap.get('D')
-      + "H" + this.durationMap.get('H')
-      + "M" + this.durationMap.get('Min')
-      + "S" + this.durationMap.get('S');
+      + "H" + this.durationMap.get('TH')
+      + "M" + this.durationMap.get('TM')
+      + "S" + this.durationMap.get('TS');
+  }
+
+  parseDuration(durationStr: string): Map<string, number> {
+    if (!durationStr || !durationStr.startsWith("P")) {
+      return new Map();
+    }
+    const durationMap = new Map<string, number>();
+    let durationStrWithoutPeriod = durationStr.replace("P", "");
+    let datePortion = "";
+    let timePortion = "";
+    if (durationStrWithoutPeriod.includes("T")) {
+      [datePortion, timePortion] = durationStrWithoutPeriod.split("T");
+    } else {
+      datePortion = durationStrWithoutPeriod;
+    }
+    const dateRegex = /(\d+)([YMDW])/g;
+    const timeRegex = /(\d+)([HMS])/g;
+    let match;
+    while ((match = dateRegex.exec(datePortion)) !== null) {
+      const value = parseInt(match[1]);
+      const unit = match[2];
+      durationMap.set(unit, value);
+    }
+    while ((match = timeRegex.exec(timePortion)) !== null) {
+      const value = parseInt(match[1]);
+      const unit = "T" + match[2];
+      durationMap.set(unit, value);
+    }
+    return durationMap;
   }
 
   onValueChange(unit: string, newVal: number): void {
     this.markAsTouched();
     this.durationMap.set(unit, newVal);
-    this.parsedDuration = this.buildParsedDuration();
-    this.onChange(this.parsedDuration);
+    this.durationStr = this.buildDurationStr();
+    this.onChange(this.durationStr);
   }
 
   markAsTouched(): void {
