@@ -49,13 +49,36 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   buildDurationStr(): string {
-    return "PY" + this.durationMap.get('Y')
-      + "M" + this.durationMap.get('M')
-      + "W" + this.durationMap.get('W')
-      + "D" + this.durationMap.get('D')
-      + "H" + this.durationMap.get('TH')
-      + "M" + this.durationMap.get('TM')
-      + "S" + this.durationMap.get('TS');
+    let durStr = "P";
+    // date fields
+    if (this.durationMap.get('Y')) {
+      durStr += this.durationMap.get('Y') + 'Y';
+    }
+    if (this.durationMap.get('M')) {
+      durStr += this.durationMap.get('M') + 'M';
+    }
+    if (this.durationMap.get('W')) {
+      durStr += this.durationMap.get('W') + 'W';
+    }
+    if (this.durationMap.get('D')) {
+      durStr += this.durationMap.get('D') + 'D';
+    }
+
+    // time fields
+    if (this.hasTimeFields()) {
+      durStr += "T";
+    }
+    if (this.durationMap.get('TH')) {
+      durStr += this.durationMap.get('TH') + 'H';
+    }
+    if (this.durationMap.get('TM')) {
+      durStr += this.durationMap.get('TM') + 'M';
+    }
+    if (this.durationMap.get('TS')) {
+      durStr += this.durationMap.get('TS') + 'S';
+    }
+
+    return durStr;
   }
 
   parseDuration(durationStr: string): Map<string, number> {
@@ -85,6 +108,12 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
       durationMap.set(unit, value);
     }
     return durationMap;
+  }
+
+  hasTimeFields(): boolean {
+    return this.durationMap.get('TH') != 0
+      || this.durationMap.get('TM') != 0
+      || this.durationMap.get('TS') != 0;
   }
 
   onValueChange(unit: string, newVal: number): void {
