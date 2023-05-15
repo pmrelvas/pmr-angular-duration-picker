@@ -2,6 +2,9 @@
 
 NgxPmrDurationPicker is a very simple angular component to handle durations on your angular application forms.
 
+![component image](./ngx-pmr-duration-picker.png)
+![component image without label](./ngx-pmr-duration-picker-no-label.png)
+
 ## Installation
 
 This library can be installed through the following command:
@@ -11,7 +14,7 @@ npm install --save ngx-pmr-duration-picker
 ```
 
 And on the `app.module.ts` or the module you want to import:
-```json
+```
 @NgModule({
   declarations: [...],
   imports: [
