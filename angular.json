@@ -63,6 +63,7 @@
               "projects/pmr-ngx-duration-picker-test/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "projects/pmr-ngx-duration-picker-test/src/styles.scss"
             ],
             "scripts": []
@@ -126,6 +127,7 @@
               "projects/pmr-ngx-duration-picker-test/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "projects/pmr-ngx-duration-picker-test/src/styles.scss"
             ],
             "scripts": []
