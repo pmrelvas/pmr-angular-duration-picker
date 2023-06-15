@@ -1,3 +1,5 @@
+@import '../../../styles/variables';
+
 .pmr-duration-atom-container {
   display: flex;
   flex-direction: column;
@@ -16,11 +18,17 @@
     width: 2.4em;
 
     input.pmr-duration-atom-value {
-      margin: 0.2em 0;
+      padding: 0.2em 0;
       font-size: 1.3em;
-      width: 1.5em;
+      width: 100%;
       text-align: center;
       border: none;
+    }
+
+
+    input.pmr-duration-atom-value:hover,
+    input.pmr-duration-atom-value:focus {
+      background-color: $blue-background;
     }
 
     input[type='number']::-webkit-inner-spin-button,

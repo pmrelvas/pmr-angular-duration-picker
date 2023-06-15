@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { DurationPickerMode } from '../../duration-picker-mode';
 
 @Component({
   selector: 'pmr-duration-picker',
@@ -33,6 +34,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   onTouched = () => {};
   isTouched = false;
   isDisabled = false;
+  mode = DurationPickerMode.PRETTY;
 
   writeValue(durationStr: string): void {
     this.durationStr = durationStr;
@@ -126,10 +128,32 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     this.onChange(this.durationStr);
   }
 
+  onStrValueChange(newVal: string): void {
+    this.markAsTouched();
+    this.durationStr = newVal;
+    this.onChange(this.durationStr);
+  }
+
   markAsTouched(): void {
     if (!this.isTouched) {
       this.onTouched();
       this.isTouched = true;
     }
+  }
+
+  onSwitchModeClick(): void {
+    if (this.mode === DurationPickerMode.PRETTY) {
+      this.mode = DurationPickerMode.STRING;
+    } else {
+      this.mode = DurationPickerMode.PRETTY;
+    }
+  }
+
+  isPrettyMode(): boolean {
+    return this.mode === DurationPickerMode.PRETTY;
+  }
+
+  isStringMode(): boolean {
+    return this.mode === DurationPickerMode.STRING;
   }
 }

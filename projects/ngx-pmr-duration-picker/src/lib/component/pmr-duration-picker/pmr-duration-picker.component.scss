@@ -1,8 +1,43 @@
+@import '../../../styles/variables';
+
 .pmr-duration-picker {
   display: flex;
-  font-family: 'Rubik', 'Roboto', sans-serif;
+  font-family: "Rubik", "Roboto", sans-serif;
   flex-direction: row;
   align-items: center;
+
+  .btn-switch-mode {
+    background-color: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-bottom: 0.4rem;
+  }
+
+  .btn-switch-mode > * {
+    padding: 0.3rem;
+  }
+
+  .btn-switch-mode:hover {
+    background-color: $blue-background;
+  }
+
+  .pmr-duration-picker-str-wrapper {
+    border-top: 0.2em solid black;
+    border-bottom: 0.2em solid black;
+    margin: 0.3rem;
+
+    input.input-duration-str {
+      padding: 0.2em 0;
+      font-size: 1.3em;
+      width: 100%;
+      text-align: center;
+      border: none;
+      margin-right: 0.4rem;
+    }
+  }
 
   .pmr-duration-picker-items {
     display: flex;
