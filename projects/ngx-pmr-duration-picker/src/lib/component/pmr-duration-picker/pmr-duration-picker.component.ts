@@ -123,6 +123,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   onValueChange(unit: string, newVal: number): void {
     this.markAsTouched();
+    console.table(newVal);
     this.durationMap.set(unit, newVal);
     this.durationStr = this.buildDurationStr();
     this.onChange(this.durationStr);

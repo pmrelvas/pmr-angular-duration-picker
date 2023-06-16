@@ -9,11 +9,12 @@
   .btn-switch-mode {
     background-color: transparent;
     border: none;
-    border-radius: 0.5rem;
-    font-size: 1.3rem;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     align-self: flex-end;
-    margin-bottom: 0.4rem;
   }
 
   .btn-switch-mode > * {
@@ -21,7 +22,7 @@
   }
 
   .btn-switch-mode:hover {
-    background-color: $blue-background;
+    background-color: $grey-background;
   }
 
   .pmr-duration-picker-str-wrapper {
