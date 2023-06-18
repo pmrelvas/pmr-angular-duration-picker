@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DurationPickerMode } from '../../duration-picker-mode';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'pmr-duration-picker',
@@ -18,6 +19,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
+  @Input() durationLabel = 'Duration';
 
   durationMap: Map<string, number> = new Map([
     ["Y", 0],

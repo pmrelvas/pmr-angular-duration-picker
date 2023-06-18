@@ -1,4 +1,4 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .pmr-duration-picker {
   display: flex;
@@ -15,6 +15,7 @@
     height: 3rem;
     cursor: pointer;
     align-self: flex-end;
+    margin-left: 0.7em;
   }
 
   .btn-switch-mode > * {
@@ -25,20 +26,63 @@
     background-color: $grey-background;
   }
 
-  .pmr-duration-picker-str-wrapper {
-    border-top: 0.2em solid black;
-    border-bottom: 0.2em solid black;
-    margin: 0.3rem;
+  .pmr-duration-picker-str {
+    position: relative;
 
-    input.input-duration-str {
-      padding: 0.2em 0;
-      font-size: 1.3em;
+    input {
       width: 100%;
-      text-align: center;
-      border: none;
-      margin-right: 0.4rem;
+      padding: 0.3rem;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      border-radius: 5px;
+      outline: none;
+      font-size: 1em;
+      line-height: 2.3em;
+    }
+
+    input:hover {
+      border: 1px solid rgba(0, 0, 0, 0.75);
+    }
+
+    input:focus {
+      border: 2px solid rgba(0, 0, 0, 0.75);
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+      padding: 10px;
+      pointer-events: none;
+      font-size: 1em;
+      transition: 0.5s;
+      color: rgba(0, 0, 0, 0.38);
+    }
+
+    input.filled ~ label,
+    input:focus ~ label {
+      transform: translateX(10px) translateY(-7px);
+      font-size: 0.65em;
+      padding: 0 0.4em;
+      color: rgba(0, 0, 0, 0.75);
+      background-color: white;
     }
   }
+
+
+  // .pmr-duration-picker-str-wrapper {
+  //   border-top: 0.2em solid black;
+  //   border-bottom: 0.2em solid black;
+  //   margin: 0.3rem;
+
+  //   input.input-duration-str {
+  //     padding: 0.2em 0;
+  //     font-size: 1.3em;
+  //     width: 100%;
+  //     text-align: center;
+  //     border: none;
+  //     margin-right: 0.4rem;
+  //   }
+  // }
 
   .pmr-duration-picker-items {
     display: flex;
