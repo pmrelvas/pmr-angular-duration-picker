@@ -1,14 +1,13 @@
 <section class="pmr-duration-atom-container">
-  <span class="pmr-duration-atom-label">{{ label }}</span>
   <div class="pmr-duration-atom-content">
     <input
       class="pmr-duration-atom-value"
+      [class.filled]="value"
       type="number"
-      [attr.allowNul]="true"
-      onclick="this.select();"
-      [ngModel]="value"
+      [ngModel]="value || null"
       [attr.disabled]="disabled"
       (ngModelChange)="onValueChange($event)"
     />
+  <label class="pmr-duration-atom-label">{{ label }}</label>
   </div>
 </section>

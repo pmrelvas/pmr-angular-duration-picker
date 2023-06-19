@@ -10,16 +10,16 @@
     background-color: transparent;
     border: none;
     border-radius: 50%;
-    font-size: 1.1rem;
-    width: 3rem;
-    height: 3rem;
+    font-size: 0.9em;
+    width: 2.5em;
+    height: 2.5em;
     cursor: pointer;
     align-self: flex-end;
-    margin-left: 0.7em;
+    margin-left: 0.2em;
   }
 
   .btn-switch-mode > * {
-    padding: 0.3rem;
+    padding: 0.2em;
   }
 
   .btn-switch-mode:hover {
@@ -28,10 +28,12 @@
 
   .pmr-duration-picker-str {
     position: relative;
+    margin-left: 0.2em;
+    margin-right: 0.9em;
 
     input {
       width: 100%;
-      padding: 0.3rem;
+      padding: 0.3em;
       border: 1px solid rgba(0, 0, 0, 0.38);
       border-radius: 5px;
       outline: none;
@@ -60,29 +62,13 @@
 
     input.filled ~ label,
     input:focus ~ label {
-      transform: translateX(10px) translateY(-7px);
+      transform: translateX(0.8em) translateY(-0.8em);
       font-size: 0.65em;
       padding: 0 0.4em;
       color: rgba(0, 0, 0, 0.75);
       background-color: white;
     }
   }
-
-
-  // .pmr-duration-picker-str-wrapper {
-  //   border-top: 0.2em solid black;
-  //   border-bottom: 0.2em solid black;
-  //   margin: 0.3rem;
-
-  //   input.input-duration-str {
-  //     padding: 0.2em 0;
-  //     font-size: 1.3em;
-  //     width: 100%;
-  //     text-align: center;
-  //     border: none;
-  //     margin-right: 0.4rem;
-  //   }
-  // }
 
   .pmr-duration-picker-items {
     display: flex;

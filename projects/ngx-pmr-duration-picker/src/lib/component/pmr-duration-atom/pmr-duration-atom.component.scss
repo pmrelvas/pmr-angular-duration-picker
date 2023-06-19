@@ -13,22 +13,28 @@
   }
 
   .pmr-duration-atom-content {
-    border-top: 0.2em solid black;
-    border-bottom: 0.2em solid black;
+    position: relative;
     width: 2.4em;
 
     input.pmr-duration-atom-value {
       padding: 0.2em 0;
-      font-size: 1.3em;
+      font-size: 1.1em;
+      line-height: 1.4em;
       width: 100%;
       text-align: center;
       border: none;
+      border-top: 2px solid rgba(0, 0, 0, 0.38);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.38);
     }
 
+    input.pmr-duration-atom-value:hover {
+      border: 2px solid rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
+    }
 
-    input.pmr-duration-atom-value:hover,
     input.pmr-duration-atom-value:focus {
-      background-color: $grey-background;
+      border: 3px solid rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
     }
 
     input[type='number']::-webkit-inner-spin-button,
@@ -39,6 +45,26 @@
 
     input.pmr-duration-atom-value:focus {
       outline: none;
+    }
+
+    label {
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+      padding: 0.2em 0.8em;
+      pointer-events: none;
+      font-size: 1em;
+      transition: 0.5s;
+      color: rgba(0, 0, 0, 0.38);
+    }
+
+    input.filled ~ label,
+    input:focus ~ label {
+      transform: translateX(0.8em) translateY(-0.8em);
+      font-size: 0.65em;
+      padding: 0 0.6em;
+      color: rgba(0, 0, 0, 0.75);
+      background-color: white;
     }
   }
 }
