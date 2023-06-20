@@ -1,70 +1,51 @@
 <section class="pmr-duration-picker">
-  <section class="pmr-duration-picker-items" *ngIf="isPrettyMode()">
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('Y')"
-      label="Y"
-      [value]="durationMap.get('Y') || 0"
-      (valueChange)="onValueChange('Y', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+  <div class="pmr-duration-picker-wrapper">
+    <section class="pmr-duration-picker-items" *ngIf="isPrettyMode()">
+      <pmr-duration-atom *ngIf="displayedItems.includes('Y')" label="Y" [value]="durationMap.get('Y') || 0"
+        (valueChange)="onValueChange('Y', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('M')"
-      label="M"
-      [value]="durationMap.get('M') || 0"
-      (valueChange)="onValueChange('M', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+      <pmr-duration-atom *ngIf="displayedItems.includes('M')" label="M" [value]="durationMap.get('M') || 0"
+        (valueChange)="onValueChange('M', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('W')"
-      label="W"
-      [value]="durationMap.get('W') || 0"
-      (valueChange)="onValueChange('W', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+      <pmr-duration-atom *ngIf="displayedItems.includes('W')" label="W" [value]="durationMap.get('W') || 0"
+        (valueChange)="onValueChange('W', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('D')"
-      label="D"
-      [value]="durationMap.get('D') || 0"
-      (valueChange)="onValueChange('D', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+      <pmr-duration-atom *ngIf="displayedItems.includes('D')" label="D" [value]="durationMap.get('D') || 0"
+        (valueChange)="onValueChange('D', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('TH')"
-      label="H"
-      [value]="durationMap.get('TH') || 0"
-      (valueChange)="onValueChange('TH', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+      <pmr-duration-atom *ngIf="displayedItems.includes('TH')" label="H" [value]="durationMap.get('TH') || 0"
+        (valueChange)="onValueChange('TH', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('TM')"
-      label="M"
-      [value]="durationMap.get('TM') || 0"
-      (valueChange)="onValueChange('TM', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
+      <pmr-duration-atom *ngIf="displayedItems.includes('TM')" label="M" [value]="durationMap.get('TM') || 0"
+        (valueChange)="onValueChange('TM', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-    <pmr-duration-atom
-      *ngIf="displayedItems.includes('TS')"
-      label="S"
-      [value]="durationMap.get('TS') || 0"
-      (valueChange)="onValueChange('TS', $event)"
-      [disabled]="isDisabled"
-    ></pmr-duration-atom>
-  </section>
+      <pmr-duration-atom *ngIf="displayedItems.includes('TS')" label="S" [value]="durationMap.get('TS') || 0"
+        (valueChange)="onValueChange('TS', $event)" [disabled]="isDisabled"></pmr-duration-atom>
+    </section>
 
-  <div class="pmr-duration-picker-str" *ngIf="isStringMode()">
-    <input type="text" [class.filled]="durationStr" [ngModel]="durationStr" (ngModelChange)="onStrValueChange($event)">
-    <label>{{ durationLabel }}</label>
+    <div class="pmr-duration-picker-str" *ngIf="isStringMode()">
+      <input type="text" [class.filled]="durationStr" [class.invalid]="!isValid" [ngModel]="durationStr"
+        (ngModelChange)="onStrValueChange($event)">
+      <label>{{ durationLabel }}</label>
+    </div>
+
+    <button class="btn-switch-mode" (click)="onSwitchModeClick()" *ngIf="!disableSwitchMode">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+        viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+        <style>
+          svg {
+            fill: #000000
+          }
+        </style>
+        <path
+          d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z" />
+      </svg>
+    </button>
+
+    <span class="pmr-duration-picker-label" *ngIf="!disableLabel">{{ durationStr }}</span>
   </div>
 
-  <button class="btn-switch-mode" (click)="onSwitchModeClick()" *ngIf="!disableSwitchMode">
-    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#000000}</style><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
-  </button>
-
-  <span class="pmr-duration-picker-label" *ngIf="!disableLabel">{{ durationStr }}</span>
+  <div class="pmr-duration-picker-subscript">
+    <span class="invalid-duration-msg" *ngIf="!isValid">Invalid duration format.</span>
+  </div>
 </section>

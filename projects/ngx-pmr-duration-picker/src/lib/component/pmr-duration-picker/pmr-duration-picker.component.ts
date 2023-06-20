@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DurationPickerMode } from '../../duration-picker-mode';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'pmr-duration-picker',
@@ -10,26 +9,30 @@ import { NgClass } from '@angular/common';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      multi:true,
-      useExisting: PmrDurationPickerComponent
-    }
-  ]
+      multi: true,
+      useExisting: PmrDurationPickerComponent,
+    },
+  ],
 })
 export class PmrDurationPickerComponent implements ControlValueAccessor {
+  readonly DURATION_REGEX =
+    /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/;
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
   @Input() disableSwitchMode = false;
   @Input() durationLabel = 'Duration';
+  @Output() valid = new EventEmitter(true);
+  isValid = true;
 
   durationMap: Map<string, number> = new Map([
-    ["Y", 0],
-    ["M", 0],
-    ["W", 0],
-    ["D", 0],
-    ["TH", 0],
-    ["TM", 0],
-    ["TS", 0],
+    ['Y', 0],
+    ['M', 0],
+    ['W', 0],
+    ['D', 0],
+    ['TH', 0],
+    ['TM', 0],
+    ['TS', 0],
   ]);
 
   durationStr = this.buildDurationStr();
@@ -57,7 +60,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   buildDurationStr(): string {
-    let durStr = "P";
+    let durStr = 'P';
     // date fields
     if (this.durationMap.get('Y')) {
       durStr += this.durationMap.get('Y') + 'Y';
@@ -74,7 +77,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
     // time fields
     if (this.hasTimeFields()) {
-      durStr += "T";
+      durStr += 'T';
     }
     if (this.durationMap.get('TH')) {
       durStr += this.durationMap.get('TH') + 'H';
@@ -90,15 +93,15 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   parseDuration(durationStr: string): Map<string, number> {
-    if (!durationStr || !durationStr.startsWith("P")) {
+    if (!durationStr || !durationStr.startsWith('P')) {
       return new Map();
     }
     const durationMap = new Map<string, number>();
-    let durationStrWithoutPeriod = durationStr.replace("P", "");
-    let datePortion = "";
-    let timePortion = "";
-    if (durationStrWithoutPeriod.includes("T")) {
-      [datePortion, timePortion] = durationStrWithoutPeriod.split("T");
+    let durationStrWithoutPeriod = durationStr.replace('P', '');
+    let datePortion = '';
+    let timePortion = '';
+    if (durationStrWithoutPeriod.includes('T')) {
+      [datePortion, timePortion] = durationStrWithoutPeriod.split('T');
     } else {
       datePortion = durationStrWithoutPeriod;
     }
@@ -112,16 +115,18 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     }
     while ((match = timeRegex.exec(timePortion)) !== null) {
       const value = parseInt(match[1]);
-      const unit = "T" + match[2];
+      const unit = 'T' + match[2];
       durationMap.set(unit, value);
     }
     return durationMap;
   }
 
   hasTimeFields(): boolean {
-    return this.durationMap.get('TH') != 0
-      || this.durationMap.get('TM') != 0
-      || this.durationMap.get('TS') != 0;
+    return (
+      this.durationMap.get('TH') != 0 ||
+      this.durationMap.get('TM') != 0 ||
+      this.durationMap.get('TS') != 0
+    );
   }
 
   onValueChange(unit: string, newVal: number): void {
@@ -135,6 +140,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   onStrValueChange(newVal: string): void {
     this.markAsTouched();
     this.durationStr = newVal;
+    this.validateDuration();
     this.onChange(this.durationStr);
   }
 
@@ -159,5 +165,10 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   isStringMode(): boolean {
     return this.mode === DurationPickerMode.STRING;
+  }
+
+  validateDuration(): void {
+    this.isValid = this.DURATION_REGEX.test(this.durationStr);
+    this.valid.emit(this.valid);
   }
 }

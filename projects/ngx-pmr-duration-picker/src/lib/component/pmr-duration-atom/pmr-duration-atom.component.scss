@@ -23,17 +23,17 @@
       width: 100%;
       text-align: center;
       border: none;
-      border-top: 2px solid rgba(0, 0, 0, 0.38);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.38);
+      border-top: 2px solid $form-field;
+      border-bottom: 2px solid $form-field;
     }
 
     input.pmr-duration-atom-value:hover {
-      border: 2px solid rgba(0, 0, 0, 0.75);
+      border: 2px solid $form-field-focus;
       border-radius: 5px;
     }
 
     input.pmr-duration-atom-value:focus {
-      border: 3px solid rgba(0, 0, 0, 0.75);
+      border: 3px solid $form-field-focus;
       border-radius: 5px;
     }
 
@@ -55,7 +55,7 @@
       pointer-events: none;
       font-size: 1em;
       transition: 0.5s;
-      color: rgba(0, 0, 0, 0.38);
+      color: $form-field;
     }
 
     input.filled ~ label,
@@ -63,7 +63,7 @@
       transform: translateX(0.8em) translateY(-0.8em);
       font-size: 0.65em;
       padding: 0 0.6em;
-      color: rgba(0, 0, 0, 0.75);
+      color: $form-field-focus;
       background-color: white;
     }
   }
