@@ -8,6 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AppComponent {
   title = 'pmr-ngx-duration-picker-test';
+  latestVersion = '15.0.3';
   formGroup = this.formBuilder.group({
     duration: ['P1Y2M3W4DT5H6M7S']
   });
@@ -17,6 +18,10 @@ export class AppComponent {
   constructor(private formBuilder: FormBuilder) {
     this.formGroup.get('duration')?.valueChanges
     .subscribe((val) => console.log(val));
+  }
+
+  onCopyInstallCmdClick(): void {
+    console.error("implement");
   }
 
 }

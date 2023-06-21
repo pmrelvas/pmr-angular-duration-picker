@@ -1,0 +1,97 @@
+$primary-color: #607d8a;
+
+#navbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+
+  #angular-logo {
+    height: auto;
+    width: 1.7rem;
+  }
+
+  #nav-home {
+    position: relative;
+  }
+}
+
+#header {
+  background-color: $primary-color;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    color: white;
+  }
+
+  #install-cmd {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 0.7rem;
+
+    #btn-copy-install-cmd {
+      color: white;
+      width: 1.5rem !important;
+      height: 1.5rem !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+
+      #copy-icon {
+        font-size: 1rem;
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+  }
+
+  #badges {
+    margin-top: 1.5rem;
+
+    > * {
+      margin-right: 0.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.terminal {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 6px;
+  padding-top: 45px;
+  margin-top: 8px;
+  overflow: hidden;
+  background-color: rgb(15, 15, 16);
+}
+
+.terminal::before {
+  content: "\2022 \2022 \2022";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: rgb(58, 58, 58);
+  color: #c2c3c4;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 0;
+  padding: 14px 0;
+  text-indent: 4px;
+}
+
+.terminal pre {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  color: white;
+  padding: 0 1rem 1rem;
+  margin: 0;
+}
