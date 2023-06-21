@@ -8,7 +8,7 @@
     <h3>Install</h3>
     <div id="install-cmd" class="terminal">
       <pre>npm i ngx-pmr-duration-picker</pre>
-      <button id="btn-copy-install-cmd" mat-icon-button (click)="onCopyInstallCmdClick()">
+      <button id="btn-copy-install-cmd" mat-icon-button [cdkCopyToClipboard]="'npm i ngx-pmr-duration-picker'">
         <mat-icon id="copy-icon">content_copy</mat-icon>
       </button>
     </div>

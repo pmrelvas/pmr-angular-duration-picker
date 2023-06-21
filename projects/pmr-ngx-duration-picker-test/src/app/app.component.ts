@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,6 @@ export class AppComponent {
   constructor(private formBuilder: FormBuilder) {
     this.formGroup.get('duration')?.valueChanges
     .subscribe((val) => console.log(val));
-  }
-
-  onCopyInstallCmdClick(): void {
-    console.error("implement");
   }
 
 }
