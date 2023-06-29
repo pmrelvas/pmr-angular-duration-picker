@@ -7,8 +7,8 @@
   <section id="header">
     <h3>Install</h3>
     <div id="install-cmd" class="terminal">
-      <pre>npm i ngx-pmr-duration-picker</pre>
-      <button id="btn-copy-install-cmd" mat-icon-button [cdkCopyToClipboard]="'npm i ngx-pmr-duration-picker'">
+      <pre>npm i --save ngx-pmr-duration-picker</pre>
+      <button id="btn-copy-install-cmd" mat-icon-button [cdkCopyToClipboard]="'npm i --save ngx-pmr-duration-picker'">
         <mat-icon id="copy-icon">content_copy</mat-icon>
       </button>
     </div>
@@ -25,6 +25,25 @@
           alt="github badge" />
       </a>
     </div>
+  </section>
+
+  <section id="main-content-container">
+    <mat-tab-group>
+      <!-- Overview -->
+      <mat-tab label="Overview">
+        <app-overview></app-overview>
+      </mat-tab>
+
+      <!-- Api -->
+      <mat-tab label="Api">
+        Api content
+      </mat-tab>
+
+      <!-- Examples -->
+      <mat-tab label="Examples">
+        Examples content
+      </mat-tab>
+    </mat-tab-group>
   </section>
 
   <h3>Form Control:</h3>

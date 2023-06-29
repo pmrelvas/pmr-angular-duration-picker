@@ -63,6 +63,12 @@ $primary-color: #607d8a;
   }
 }
 
+#main-content-container {
+  padding: 1.5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
 .terminal {
   position: relative;
   width: 80%;

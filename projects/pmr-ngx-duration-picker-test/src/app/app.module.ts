@@ -8,13 +8,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { OverviewComponent } from './components/overview/overview.component';
+import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, OverviewComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -25,9 +27,12 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    ClipboardModule
+    MatTabsModule,
+    MatCardModule,
+    ClipboardModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

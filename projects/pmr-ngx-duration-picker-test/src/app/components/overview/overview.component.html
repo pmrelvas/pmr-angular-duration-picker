@@ -1,0 +1,24 @@
+<p>ngx-pmr-duration-picker is an Angular library to display and manage durations on your application.</p>
+
+<mat-card class="code-card">
+  <mat-card-title class="card-header">
+    <span>Basic usage</span>
+    <button mat-icon-button class="icon-btn" (click)="onBasicUsageToggleClick()">
+      <mat-icon>code</mat-icon>
+    </button>
+  </mat-card-title>
+  <mat-card-content class="card-content">
+    <div class="preview" *ngIf="isBasicUsageExampleMode() else basicUsageCode">
+      <pmr-duration-picker [(ngModel)]="basicExample.duration"></pmr-duration-picker>
+    </div>
+    <ng-template #basicUsageCode>
+
+      <div class="code-block">
+        <ngx-monaco-editor id="basic-usage-editor" [(ngModel)]="basicExample.code" [options]="basicExample.editorOptions"></ngx-monaco-editor>
+        <button mat-icon-button class="icon-btn " (click)="onBasicUsageToggleClick()">
+          <mat-icon>copy</mat-icon>
+        </button>
+      </div>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

@@ -21,26 +21,79 @@ $pmr-ngx-duration-picker-theme: mat.define-light-theme(
   )
 );
 
-$pmr-base54-encoder-main-grey: #f5f5f5;
+$pmr-dark-grey: #666;
+$pmr-main-grey: #f5f5f5;
 
 // Dark theme
-$dark-theme: mat.define-dark-theme((
- color: (
-   primary: mat.define-palette(mat.$blue-grey-palette),
-   accent: mat.define-palette(mat.$blue-grey-palette),
- ),
-  // Only include `typography` and `density` in the default dark theme.
-  typography: mat.define-typography-config(),
-  density: 0,
-));
-
-
+$dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: mat.define-palette(mat.$blue-grey-palette),
+      accent: mat.define-palette(mat.$blue-grey-palette),
+    ),
+    // Only include `typography` and `density` in the default dark theme.
+    typography: mat.define-typography-config(),
+    density: 0,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($pmr-ngx-duration-picker-theme);
 
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.code-card {
+  margin: 0.5em;
+
+  .card-header {
+    font-size: 1rem;
+    color: $pmr-dark-grey;
+    padding: 0.2rem 0.7rem 0.5rem 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card-content {
+    .preview {
+      display: flex;
+      justify-content: center;
+    }
+
+    .code-block {
+      position: relative;
+    }
+  }
+
+  .icon-btn {
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    .mat-icon {
+      font-size: 1.3rem;
+      color: black;
+      height: 1.3rem;
+      width: 1.3rem;
+    }
+  }
+
+  .btn-copy-code {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1 !important;
+  }
+}
