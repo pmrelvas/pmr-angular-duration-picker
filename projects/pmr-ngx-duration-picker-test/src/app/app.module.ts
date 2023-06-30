@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { OverviewComponent } from './components/overview/overview.component';
-import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
 
 @NgModule({
   declarations: [AppComponent, OverviewComponent],
@@ -29,8 +28,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
     MatButtonModule,
     MatTabsModule,
     MatCardModule,
-    ClipboardModule,
-    MonacoEditorModule.forRoot()
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,4 @@
-<p>ngx-pmr-duration-picker is an Angular library to display and manage durations on your application.</p>
+<p><strong>ngx-pmr-duration-picker</strong> is an Angular library to display and manage durations on your application.</p>
 
 <mat-card class="code-card">
   <mat-card-title class="card-header">
@@ -12,11 +12,12 @@
       <pmr-duration-picker [(ngModel)]="basicExample.duration"></pmr-duration-picker>
     </div>
     <ng-template #basicUsageCode>
-
       <div class="code-block">
-        <ngx-monaco-editor id="basic-usage-editor" [(ngModel)]="basicExample.code" [options]="basicExample.editorOptions"></ngx-monaco-editor>
-        <button mat-icon-button class="icon-btn " (click)="onBasicUsageToggleClick()">
-          <mat-icon>copy</mat-icon>
+        <pre>
+          <code #codeBasicExample class="language-html">&lt;pmr-duration-picker [(ngModel)]="duration">&lt;/pmr-duration-picker></code>
+        </pre>
+        <button mat-icon-button class="icon-btn btn-copy-code" (click)="onBasicUsageToggleClick()">
+          <mat-icon>content_copy</mat-icon>
         </button>
       </div>
     </ng-template>

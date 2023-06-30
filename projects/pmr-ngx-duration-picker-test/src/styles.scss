@@ -51,6 +51,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+code {
+  font-family: "Roboto Mono", monospace;
+}
+
 .code-card {
   margin: 0.5em;
 
@@ -71,6 +75,14 @@ body {
 
     .code-block {
       position: relative;
+
+      pre {
+        margin: 0 !important;
+
+        code {
+          padding: 0.7rem;
+        }
+      }
     }
   }
 
@@ -92,8 +104,18 @@ body {
 
   .btn-copy-code {
     position: absolute;
-    top: 0.5rem;
+    top: 1.5rem;
     right: 0.5rem;
     z-index: 1 !important;
+  }
+
+  #btn-copy-install-cmd {
+    top: 0.5 !important;
+  }
+}
+
+.code-tab-group {
+  .mat-mdc-tab {
+    flex-grow: 0 !important;
   }
 }
