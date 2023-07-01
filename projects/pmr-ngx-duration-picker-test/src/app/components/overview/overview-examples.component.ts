@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Component,
   ElementRef,
   ViewChild,
@@ -15,14 +14,6 @@ declare var hljs: any;
   styleUrls: ['./overview-examples.component.scss'],
 })
 export class OverviewExamplesComponent {
-  @ViewChild('codeNgModelHtml', { static: false }) codeNgModelHtml!: ElementRef;
-  @ViewChild('codeNgModelTs', { static: false }) codeNgModelTs!: ElementRef;
-  @ViewChild('codeFormControlHtml', { static: false })
-  codeFormControlHtml!: ElementRef;
-  @ViewChild('codeFormControlTs', { static: false })
-  codeFormControlTs!: ElementRef;
-  @ViewChild('codeTimeHtml', { static: false }) codeTimeHtml!: ElementRef;
-  @ViewChild('codeTimeTs', { static: false }) codeTimeTs!: ElementRef;
 
   ngModelExample = {
     duration: 'P1Y2M3W4DT5H6M7S',
@@ -73,7 +64,7 @@ export class AppComponent {
 
   timeExample = {
     duration: 'PT1H2M3S',
-  displayedItems: ['TH', 'TM', 'TS'],
+    displayedItems: ['TH', 'TM', 'TS'],
     mode: CodeCardMode.EXAMPLE,
     htmlCode:
       '<pmr-duration-picker [displayedItems]="displayedItems" [(ngModel)]="duration"></pmr-duration-picker>',
@@ -149,61 +140,5 @@ export class AppComponent {
 }`,
   };
 
-  constructor(
-    private changeDetector: ChangeDetectorRef,
-    private formBuilder: FormBuilder
-  ) {}
-
-  onNgModelToggleClick(): void {
-    if (this.ngModelExample.mode === CodeCardMode.EXAMPLE) {
-      this.ngModelExample.mode = CodeCardMode.CODE;
-    } else {
-      this.ngModelExample.mode = CodeCardMode.EXAMPLE;
-    }
-    this.changeDetector.detectChanges();
-    hljs.highlightElement(this.codeNgModelHtml.nativeElement, { language: 'html' });
-    hljs.highlightElement(this.codeNgModelTs.nativeElement, { language: 'typescript' });
-  }
-
-  isNgModelExampleMode(): boolean {
-    return this.ngModelExample.mode === CodeCardMode.EXAMPLE;
-  }
-
-  onFormControlToggleClick(): void {
-    if (this.formControlExample.mode === CodeCardMode.EXAMPLE) {
-      this.formControlExample.mode = CodeCardMode.CODE;
-    } else {
-      this.formControlExample.mode = CodeCardMode.EXAMPLE;
-    }
-    this.changeDetector.detectChanges();
-    hljs.highlightElement(this.codeFormControlHtml.nativeElement, {
-      language: 'html',
-    });
-    hljs.highlightElement(this.codeFormControlTs.nativeElement, {
-      language: 'typescript',
-    });
-  }
-
-  isFormControlExampleMode(): boolean {
-    return this.formControlExample.mode === CodeCardMode.EXAMPLE;
-  }
-
-  onTimeToggleClick(): void {
-    if (this.timeExample.mode === CodeCardMode.EXAMPLE) {
-      this.timeExample.mode = CodeCardMode.CODE;
-    } else {
-      this.timeExample.mode = CodeCardMode.EXAMPLE;
-    }
-    this.changeDetector.detectChanges();
-    hljs.highlightElement(this.codeTimeHtml.nativeElement, {
-      language: 'html',
-    });
-    hljs.highlightElement(this.codeTimeTs.nativeElement, {
-      language: 'typescript',
-    });
-  }
-
-  isTimeExampleMode(): boolean {
-    return this.timeExample.mode === CodeCardMode.EXAMPLE;
-  }
+  constructor(private formBuilder: FormBuilder) {}
 }
