@@ -1,32 +1,33 @@
-<mat-toolbar id="navbar" color="primary" class="mat-elevation-z5">
-  <img id="angular-logo" src="../assets/images/angular-white-transparent.svg" alt="angular logo">
-  <span id="nav-home">pmr-duration-picker</span>
-</mat-toolbar>
+<nav>
+  <mat-toolbar id="navbar" color="primary" class="mat-elevation-z5">
+    <img id="angular-logo" src="../assets/images/angular-white-transparent.svg" alt="angular logo">
+    <span id="nav-home">pmr-duration-picker</span>
+  </mat-toolbar>
+</nav>
+
+<header id="header">
+  <h3>Install</h3>
+  <div id="install-cmd" class="terminal">
+    <pre>npm i --save ngx-pmr-duration-picker</pre>
+    <button id="btn-copy-install-cmd" mat-icon-button [cdkCopyToClipboard]="'npm i --save ngx-pmr-duration-picker'">
+      <mat-icon id="copy-icon">content_copy</mat-icon>
+    </button>
+  </div>
+
+  <div id="badges">
+    <a href="https://www.npmjs.com/package/ngx-pmr-duration-picker" target="_blank">
+      <img src="https://img.shields.io/npm/v/ngx-pmr-duration-picker.svg?style=flat-square" [title]="latestVersion"
+        alt="latest version" />
+    </a>
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license badge" />
+    <img src="https://travis-ci.com/pmrelvas/ngx-pmr-duration-picker.svg?branch=master" alt="github build badge" />
+    <a href="https://github.com/pmrelvas/pmr-angular-duration-picker" target="_blank">
+      <img src="https://img.shields.io/badge/GitHub-grey.svg?logo=github&logoColor=white" alt="github badge" />
+    </a>
+  </div>
+</header>
 
 <main>
-  <section id="header">
-    <h3>Install</h3>
-    <div id="install-cmd" class="terminal">
-      <pre>npm i --save ngx-pmr-duration-picker</pre>
-      <button id="btn-copy-install-cmd" mat-icon-button [cdkCopyToClipboard]="'npm i --save ngx-pmr-duration-picker'">
-        <mat-icon id="copy-icon">content_copy</mat-icon>
-      </button>
-    </div>
-
-    <div id="badges">
-      <a href="https://www.npmjs.com/package/ngx-pmr-duration-picker" target="_blank">
-        <img src="https://img.shields.io/npm/v/ngx-pmr-duration-picker.svg?style=flat-square" [title]="latestVersion"
-          alt="latest version" />
-      </a>
-      <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license badge" />
-      <img src="https://travis-ci.com/pmrelvas/ngx-pmr-duration-picker.svg?branch=master" alt="github build badge" />
-      <a href="https://github.com/pmrelvas/pmr-angular-duration-picker" target="_blank">
-        <img src="https://img.shields.io/badge/GitHub-grey.svg?logo=github&logoColor=white"
-          alt="github badge" />
-      </a>
-    </div>
-  </section>
-
   <section id="main-content-container">
     <mat-tab-group>
       <mat-tab label="Overview & Examples">
@@ -39,5 +40,4 @@
 
     </mat-tab-group>
   </section>
-
 </main>
