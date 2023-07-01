@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-root',

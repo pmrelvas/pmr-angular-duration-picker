@@ -12,10 +12,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { OverviewComponent } from './components/overview/overview.component';
+import { OverviewExamplesComponent } from './components/overview/overview-examples.component';
+import { PreviewCodeComponent } from './components/preview-code/preview-code.component';
 
 @NgModule({
-  declarations: [AppComponent, OverviewComponent],
+  declarations: [AppComponent, OverviewExamplesComponent, PreviewCodeComponent],
   imports: [
     BrowserModule,
     FormsModule,

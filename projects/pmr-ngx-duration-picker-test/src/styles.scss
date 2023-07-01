@@ -55,7 +55,7 @@ code {
   font-family: "Roboto Mono", monospace;
 }
 
-.code-card {
+.preview-code-card {
   margin: 0.5em;
 
   .card-header {
@@ -114,8 +114,7 @@ code {
   }
 }
 
-.code-tab-group {
-  .mat-mdc-tab {
-    flex-grow: 0 !important;
-  }
+// remove tab header full width
+.mat-mdc-tab {
+  flex-grow: 0 !important;
 }

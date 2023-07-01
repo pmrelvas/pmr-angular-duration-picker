@@ -29,48 +29,15 @@
 
   <section id="main-content-container">
     <mat-tab-group>
-      <!-- Overview -->
-      <mat-tab label="Overview">
-        <app-overview></app-overview>
+      <mat-tab label="Overview & Examples">
+        <app-overview-examples></app-overview-examples>
       </mat-tab>
 
-      <!-- Api -->
       <mat-tab label="Api">
         Api content
       </mat-tab>
 
-      <!-- Examples -->
-      <mat-tab label="Examples">
-        Examples content
-      </mat-tab>
     </mat-tab-group>
   </section>
 
-  <h3>Form Control:</h3>
-  <form [formGroup]="formGroup">
-    <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
-    <span>{{formGroup.value.duration}}</span>
-  </form>
-
-  <h3>NgModel</h3>
-  <pmr-duration-picker [(ngModel)]="durationNgModel"></pmr-duration-picker>
-  <span>{{durationNgModel}}</span>
-
-  <h3>Only Time</h3>
-  <pmr-duration-picker [displayedItems]="['TH', 'TM', 'TS']" [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
-  <span>{{durationTimeOnly}}</span>
-
-  <h3>Without label</h3>
-  <pmr-duration-picker [disableLabel]="true" [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
-  <span>{{durationTimeOnly}}</span>
-
-  <h3>Big</h3>
-  <pmr-duration-picker style="font-size: 30px" [disableLabel]="true"
-    [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
-  <span>{{durationTimeOnly}}</span>
-
-  <h3>Disable Switch Mode</h3>
-  <pmr-duration-picker [disableSwitchMode]="true" [disableLabel]="true"
-    [(ngModel)]="durationTimeOnly"></pmr-duration-picker>
-  <span>{{durationTimeOnly}}</span>
 </main>

@@ -1,0 +1,38 @@
+  <mat-card class="preview-code-card">
+    <mat-card-title class="card-header">
+      <span>{{ title }}</span>
+      <button mat-icon-button class="icon-btn" (click)="onModeToggleClick()">
+        <mat-icon>code</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-content class="card-content">
+      <div class="preview" *ngIf="isExampleMode() else code">
+        <ng-content></ng-content>
+      </div>
+      <ng-template #code>
+        <mat-tab-group class="code-tabs-container">
+          <mat-tab label="HTML">
+            <div class="code-block">
+              <pre>
+                <code #codeHtml class="language-html">{{ htmlCode }}</code>
+              </pre>
+              <button mat-icon-button class="icon-btn btn-copy-code" [cdkCopyToClipboard]="htmlCode">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            </div>
+          </mat-tab>
+
+          <mat-tab label="TS">
+            <div class="code-block">
+              <pre>
+                <code #codeTs class="language-typescript">{{ tsCode }}</code>
+              </pre>
+              <button mat-icon-button class="icon-btn btn-copy-code" [cdkCopyToClipboard]="tsCode">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
