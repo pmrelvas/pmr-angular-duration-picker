@@ -1,19 +1,13 @@
 $primary-color: #607d8a;
 
-#navbar {
-  position: sticky;
-  position: -webkit-sticky; /* For macOS/iOS Safari */
-  top: 0; /* Sets the sticky toolbar to be on top */
-  z-index: 1000;
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  #angular-logo {
-    height: auto;
-    width: 1.7rem;
-  }
-
-  #nav-home {
-    position: relative;
-  }
+main {
+  flex-grow: 1;
 }
 
 header {
@@ -80,6 +74,22 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+#navbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000;
+
+  #angular-logo {
+    height: auto;
+    width: 1.7rem;
+  }
+
+  #nav-home {
+    position: relative;
   }
 }
 
