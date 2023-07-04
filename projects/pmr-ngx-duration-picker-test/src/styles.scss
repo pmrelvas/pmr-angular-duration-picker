@@ -72,41 +72,6 @@ code {
       display: flex;
       justify-content: center;
     }
-
-    .code-block {
-      position: relative;
-
-      pre {
-        margin: 0 !important;
-
-        code {
-          padding: 0.7rem;
-        }
-      }
-    }
-  }
-
-  .icon-btn {
-    width: 1.7rem !important;
-    height: 1.7rem !important;
-    padding: 0 !important;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-
-    .mat-icon {
-      font-size: 1.3rem;
-      color: black;
-      height: 1.3rem;
-      width: 1.3rem;
-    }
-  }
-
-  .btn-copy-code {
-    position: absolute;
-    top: 1.5rem;
-    right: 0.5rem;
-    z-index: 1 !important;
   }
 
   #btn-copy-install-cmd {
@@ -117,4 +82,82 @@ code {
 // remove tab header full width
 .mat-mdc-tab {
   flex-grow: 0 !important;
+}
+
+.code-block {
+  position: relative;
+
+  pre {
+    margin: 0 !important;
+
+    code {
+      padding: 0.7rem;
+    }
+  }
+}
+
+.icon-btn {
+  width: 1.7rem !important;
+  height: 1.7rem !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  .mat-icon {
+    font-size: 1.3rem;
+    color: black;
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+}
+
+.btn-copy-code {
+  position: absolute !important;
+  top: 1.5rem;
+  right: 0.5rem;
+  z-index: 1 !important;
+}
+
+table {
+  td, th {
+    padding: 1rem;
+  }
+
+  th {
+    background-color: $pmr-dark-grey;
+    color: white;
+  }
+
+  tr:nth-of-type(2n) {
+    background-color: $pmr-main-grey;
+  }
+}
+
+@media (max-width: 650px) {
+  th {
+    display: none;
+  }
+
+  td {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 10ch auto;
+    padding: 0.5rem 1rem
+  }
+
+  td:first-child {
+    padding-top: 2rem;
+  }
+
+  td:last-child {
+    padding-bottom: 2rem;
+  }
+
+  td::before {
+    content: attr(data-cell) ": ";
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
 }

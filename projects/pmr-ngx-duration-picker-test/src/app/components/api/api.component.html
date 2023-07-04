@@ -1,0 +1,58 @@
+<section id="import">
+  <h3>Import</h3>
+  <div class="code-block">
+    <pre>
+      <code #importCode class="language-typescript">{{ importCodeStr }}</code>
+    </pre>
+    <button mat-icon-button class="icon-btn btn-copy-code" [cdkCopyToClipboard]="importCodeStr">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+</section>
+
+<section id="properties">
+  <h3>Properties</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-cell="property">displayedItems</td>
+        <td data-cell="type">Input</td>
+        <td data-cell="description">List of duration units to be displayed. Time fields have a T prefix. Possible values are:
+          <pre>T, M, W, D TH, TM, TS.</pre>
+        </td>
+      </tr>
+
+      <tr>
+        <td data-cell="property">disableLabel</td>
+        <td data-cell="type">Input</td>
+        <td data-cell="description">If set to true, disables the duration label. Default value is false.</td>
+      </tr>
+
+      <tr>
+        <td data-cell="property">disableSwitchMode</td>
+        <td data-cell="type">Input</td>
+        <td data-cell="description">If set to true, disables the switch mode between pretty and string modes. Default value is false.</td>
+      </tr>
+
+      <tr>
+        <td data-cell="property">durationLabel</td>
+        <td data-cell="type">Input</td>
+        <td data-cell="description">Allows to override form field label used in string mode. Default value is 'Duration'. </td>
+      </tr>
+
+      <tr>
+        <td data-cell="property">valid</td>
+        <td data-cell="type">Output</td>
+        <td data-cell="description">Boolean <pre>EventEmitter</pre> that reports wether the duration string is valid or not.</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>

@@ -14,9 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { OverviewExamplesComponent } from './components/overview/overview-examples.component';
 import { PreviewCodeComponent } from './components/preview-code/preview-code.component';
+import { ApiComponent } from './components/api/api.component';
 
 @NgModule({
-  declarations: [AppComponent, OverviewExamplesComponent, PreviewCodeComponent],
+  declarations: [AppComponent, OverviewExamplesComponent, PreviewCodeComponent, ApiComponent],
   imports: [
     BrowserModule,
     FormsModule,
