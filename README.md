@@ -5,11 +5,7 @@
 - [Overview](#overview)
 - [How to use it](#how-to-use-it)
 - [Examples](#examples)
-  - [NgMode
-
-  ```
-
-  ```l](#ngmodel)
+  - [NgModel](#ngmodel)
   - [FormsModule](#formsmodule)
   - [Time](#time)
   - [Increased Font](#increased-font)
