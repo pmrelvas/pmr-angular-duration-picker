@@ -24,9 +24,6 @@ It parses and allows you to edit durations on a pretty and string modes.
 
 Live examples and documentation can be found on the [documentation page]().
 
-![example of duration picker](https://i.postimg.cc/3RBx8R5F/Screenshot-2023-07-05-at-15-02-42.png)
-
-
 ![example of duration picker](https://i.postimg.cc/j2SdLbR0/Screenshot-2023-07-05-at-15-02-53.png)
 
 ![example of duration picker](https://i.postimg.cc/FFS7k9bm/Screenshot-2023-07-05-at-15-05-20.png)
