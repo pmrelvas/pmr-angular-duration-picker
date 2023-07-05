@@ -17,40 +17,52 @@
       <tr>
         <th>Property</th>
         <th>Type</th>
+        <th>Datatype</th>
         <th>Description</th>
+        <th>Default value</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td data-cell="property">displayedItems</td>
         <td data-cell="type">Input</td>
+        <td data-cell="datatype">string[]</td>
         <td data-cell="description">List of duration units to be displayed. Time fields have a T prefix. Possible values are:
           <pre>T, M, W, D TH, TM, TS.</pre>
         </td>
+        <td data-cell="default value"><pre>['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS']</pre></td>
       </tr>
 
       <tr>
         <td data-cell="property">disableLabel</td>
         <td data-cell="type">Input</td>
-        <td data-cell="description">If set to true, disables the duration label. Default value is false.</td>
+        <td data-cell="datatype">boolean</td>
+        <td data-cell="description">If set to true, disables the duration label.</td>
+        <td data-cell="default value">false</td>
       </tr>
 
       <tr>
         <td data-cell="property">disableSwitchMode</td>
         <td data-cell="type">Input</td>
-        <td data-cell="description">If set to true, disables the switch mode between pretty and string modes. Default value is false.</td>
+        <td data-cell="datatype">boolean</td>
+        <td data-cell="description">If set to true, disables the switch mode between pretty and string modes.</td>
+        <td data-cell="default value">false</td>
       </tr>
 
       <tr>
         <td data-cell="property">durationLabel</td>
         <td data-cell="type">Input</td>
-        <td data-cell="description">Allows to override form field label used in string mode. Default value is 'Duration'. </td>
+        <td data-cell="datatype">string</td>
+        <td data-cell="description">Allows to override form field label used in string mode.</td>
+        <td data-cell="default value">Duration</td>
       </tr>
 
       <tr>
         <td data-cell="property">valid</td>
         <td data-cell="type">Output</td>
-        <td data-cell="description">Boolean <pre>EventEmitter</pre> that reports wether the duration string is valid or not.</td>
+        <td data-cell="datatype">EventEmitter</td>
+        <td data-cell="description">Boolean EventEmitter that reports wether the duration string is valid or not.</td>
+        <td data-cell="default value"></td>
       </tr>
 
     </tbody>
