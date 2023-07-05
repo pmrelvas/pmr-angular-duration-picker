@@ -10,6 +10,7 @@
   - [Time](#time)
   - [Increased Font](#increased-font)
   - [Disable Switch](#disable-switch)
+- [Properties](#properties)
 - [Run test/docs application](#run-testdocs-application)
 - [Testing](#testing)
 
