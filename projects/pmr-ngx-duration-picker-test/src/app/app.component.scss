@@ -131,3 +131,9 @@ footer {
   padding: 0 1rem 1rem;
   margin: 0;
 }
+
+@media (max-width: 650px) {
+  footer {
+    flex-direction: column;
+  }
+}
