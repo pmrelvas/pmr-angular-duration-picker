@@ -179,6 +179,16 @@ export class AppComponent {
 }
 ```
 
+## Properties
+
+| Property | Type | Datatype | Description | Default Value |
+| --- | --- | --- | --- | --- |
+| displayedItems | Input | string[] | List of duration units to be displayed. Time fields have a T prefix. Possible values are: `Y, M, W, D TH, TM, TS`. | `['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS']` |
+| disableLabel | Input | boolean | If set to true, disables the duration label. | false |
+| disableSwitchMode | Input | boolean | If set to true, disables the switch mode between pretty and string modes. | false |
+| durationLabel | Input | string | Allows to override form field label used in string mode. | Duration |
+| valid | Output | EventEmitter | Boolean EventEmitter that reports wether the duration string is valid or not. | |
+
 ## Run test/docs application
 
 In order to run the test/documentation page, you first need to build the library and run it in watched mode to be able to catch automatically catch your changes.
