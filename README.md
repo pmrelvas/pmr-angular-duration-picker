@@ -1,27 +1,208 @@
-# PmrAngularDurationPicker
+# ngx-pmr-duration-picker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+## Table of contents
 
-## Development server
+- [Overview](#overview)
+- [How to use it](#how-to-use-it)
+- [Examples](#examples)
+  - [NgMode
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  ```
 
-## Code scaffolding
+  ```l](#ngmodel)
+  - [FormsModule](#formsmodule)
+  - [Time](#time)
+  - [Increased Font](#increased-font)
+  - [Disable Switch](#disable-switch)
+- [Run test/docs application](#run-testdocs-application)
+- [Testing](#testing)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Overview
 
-## Build
+**ngx-pmr-duration-picker** is an Angular library to display and manage durations on your application following the standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+It is able to work with both **ngModel** and **FormsModule**, and allows you to customize it to best match your application.
 
-## Running unit tests
+Live examples and documentation can be found on the [documentation page]().
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![example of duration picker](https://i.postimg.cc/8j257M93/pmr-duration-picker-01.png)
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![example of duration picker](https://i.postimg.cc/gx308rP0/pmr-duration-picker-02.png)
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## How to use it
+
+You can install this lib with the following command:
+
+```
+npm i --save ngx-pmr-duration-picker
+```
+
+Then you need to import it into your module:
+
+```ts
+import { NgxPmrDurationPickerModule } from 'ngx-pmr-duration-picker';
+```
+
+Then you can use it on your angular components as described on the following section.
+
+## Examples
+
+### NgModel
+
+#### HTML
+
+```html
+<pmr-duration-picker [(ngModel)]="duration"></pmr-duration-picker>
+```
+
+#### TS
+
+```ts
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  duration = 'P4DT5H6M7S';
+}
+```
+
+### FormsModule
+
+#### HTML
+
+```html
+<form [formGroup]="formGroup">
+  <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
+</form>
+```
+
+#### TS
+
+```ts
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  formGroup = this.formBuilder.group({
+    duration: ['P1Y2M3W4DT5H6M7S']
+  });
+
+  constructor(private formBuilder: FormBuilder) {
+  }
+}
+```
+
+### Time
+
+#### HTML
+
+```html
+<pmr-duration-picker [displayedItems]="displayedItems" [(ngModel)]="duration"></pmr-duration-picker>
+```
+
+#### TS
+
+```ts
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  displayedItems = ['TH', 'TM', 'TS'];
+  duration = 'PT1H2M3S';
+}
+```
+
+### Increased Font
+
+#### HTML
+
+```html
+<pmr-duration-picker style="font-size: 30px" [(ngModel)]="duration"></pmr-duration-picker>
+```
+
+#### TS
+
+```ts
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  duration = 'PT1H2M3S';
+}
+```
+
+### Disable switch
+
+#### HTML
+
+```html
+<pmr-duration-picker [disableSwitchMode]="true" [(ngModel)]="duration"></pmr-duration-picker>
+```
+
+#### TS
+
+```ts
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  duration = 'PT1H2M3S';
+}
+```
+
+## Run test/docs application
+
+In order to run the test/documentation page, you first need to build the library and run it in watched mode to be able to catch automatically catch your changes.
+
+```
+ng build ngx-pmr-duration-picker --watch
+```
+
+Then on another terminal window we just need to run the application:
+
+```
+npm start
+```
+
+## Testing
+
+This lib is covered by [cypress](https://www.cypress.io/) tests.
+
+Tests are automatically run after every build, but they can also be run through the following command:
+
+```
+npm run cy:run
+```
+
+or by opening cypress tool in headed mode
+
+```
+npm run cy:open
+```
