@@ -19,12 +19,18 @@
 
 It is able to work with both **ngModel** and **FormsModule**, and allows you to customize it to best match your application.
 
+It parses and allows you to edit durations on a pretty and string modes.
+
 Live examples and documentation can be found on the [documentation page]().
 
-![example of duration picker](https://i.postimg.cc/8j257M93/pmr-duration-picker-01.png)
+![example of duration picker](https://i.postimg.cc/3RBx8R5F/Screenshot-2023-07-05-at-15-02-42.png)
 
 
-![example of duration picker](https://i.postimg.cc/gx308rP0/pmr-duration-picker-02.png)
+![example of duration picker](https://i.postimg.cc/j2SdLbR0/Screenshot-2023-07-05-at-15-02-53.png)
+
+![example of duration picker](https://i.postimg.cc/FFS7k9bm/Screenshot-2023-07-05-at-15-05-20.png)
+
+![example of duration picker](https://i.postimg.cc/FsQ1j2GS/Screenshot-2023-07-05-at-15-05-33.png)
 
 
 ## How to use it
