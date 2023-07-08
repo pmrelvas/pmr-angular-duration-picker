@@ -122,11 +122,10 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   hasTimeFields(): boolean {
-    return (
-      this.durationMap.get('TH') != 0 ||
-      this.durationMap.get('TM') != 0 ||
-      this.durationMap.get('TS') != 0
-    );
+    return !(this.durationMap.get('TH') === 0 || this.durationMap.get('TH') == null) ||
+      !(this.durationMap.get('TM') === 0 || this.durationMap.get('TM') == null) ||
+      !(this.durationMap.get('TS') === 0 || this.durationMap.get('TS') == null);
+    ;
   }
 
   onValueChange(unit: string, newVal: number): void {
