@@ -138,7 +138,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   onStrValueChange(newVal: string): void {
     this.markAsTouched();
-    this.durationStr = newVal;
+    this.writeValue(newVal);
     this.validateDuration();
     this.onChange(this.durationStr);
   }
