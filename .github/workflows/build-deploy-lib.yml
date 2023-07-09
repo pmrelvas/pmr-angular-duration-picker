@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 20
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm install
@@ -33,6 +34,4 @@ jobs:
       - name: Publish Artifact
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: |
-          npm adduser
-          npm publish ./dist/ngx-pmr-duration-picker
+        run: npm publish ./dist/ngx-pmr-duration-picker
