@@ -6,7 +6,6 @@
     "start": "ng serve",
     "build": "ng build ngx-pmr-duration-picker",
     "watch": "ng build --watch --configuration development",
-    "build:watch": "ng build ngx-pmr-duration-picker --watch",
     "cy:open": "cypress open",
     "cy:run:eye": "cypress run",
     "cy:run:component": "cypress run --component"
