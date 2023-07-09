@@ -30,5 +30,7 @@ jobs:
       - name: Run Tests
         run: npm run cy:run:component
 
-      - name: Deploy Artifact
+      - name: Publish Artifact
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: npm publish dist/ngx-pmr-duration-picker
