@@ -29,3 +29,6 @@ jobs:
 
       - name: Run Tests
         run: npm run cy:run:component
+
+      - name: Deploy Artifact
+        run: npm publish dist/ngx-pmr-duration-picker
