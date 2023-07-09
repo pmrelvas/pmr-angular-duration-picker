@@ -33,4 +33,6 @@ jobs:
       - name: Publish Artifact
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npm publish ./dist/ngx-pmr-duration-picker
+        run: |
+          npm adduser
+          npm publish ./dist/ngx-pmr-duration-picker
