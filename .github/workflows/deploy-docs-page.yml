@@ -21,8 +21,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Library in Watch Mode
-        run: ng build pmr-lib --watch
+      - name: Build Lib
+        run: ng build ngx-pmr-duration-picker --watch
 
       - name: Serve Application
         run: ng serve pmr-ngx-duration-picker-test --open
