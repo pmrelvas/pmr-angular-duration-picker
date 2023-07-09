@@ -14,6 +14,8 @@ export default defineConfig({
       bundler: "webpack",
     },
     specPattern: "**/*.cy.ts",
-    watchForFileChanges: false
+    watchForFileChanges: false,
+    video: false,
+    screenshotOnRunFailure: false
   },
 });
