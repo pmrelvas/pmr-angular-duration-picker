@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  build-and-test:
+  build-lib:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build Lib
-        run: npm run build
+        run: npm run build:lib
 
       - name: Run Tests
         run: npm run cy:run:component
@@ -35,4 +35,4 @@ jobs:
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        run: npm publish ./dist/ngx-pmr-duration-picker
+        run: npm run publish:lib
