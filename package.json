@@ -4,9 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build ngx-pmr-duration-picker",
+    "build:lib": "ng build ngx-pmr-duration-picker",
     "build:watch": "ng build ngx-pmr-duration-picker --watch",
+    "build:docs-app": "ng build pmr-ngx-duration-picker-test --configuration=production --base-href=",
     "watch": "ng build --watch --configuration development",
+    "publish:lib": "npm publish .dist/ngx-pmr-duration-picker",
     "cy:open": "cypress open",
     "cy:run:eye": "cypress run",
     "cy:run:component": "cypress run --component"
