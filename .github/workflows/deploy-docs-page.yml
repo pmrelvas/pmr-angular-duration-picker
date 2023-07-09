@@ -1,0 +1,34 @@
+name: Deploy Docs Page to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Library in Watch Mode
+        run: ng build pmr-lib --watch
+
+      - name: Serve Application
+        run: ng serve pmr-ngx-duration-picker-test --open
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: dist/pmr-ngx-duration-picker-test
