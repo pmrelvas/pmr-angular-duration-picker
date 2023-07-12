@@ -1,12 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { CodeCardMode } from '../../code-card-mode';
 import { FormBuilder } from '@angular/forms';
-
-declare var hljs: any;
 
 @Component({
   selector: 'app-overview-examples',
@@ -14,7 +8,6 @@ declare var hljs: any;
   styleUrls: ['./overview-examples.component.scss'],
 })
 export class OverviewExamplesComponent {
-
   ngModelExample = {
     duration: 'P1Y2M3W4DT5H6M7S',
     mode: CodeCardMode.EXAMPLE,
