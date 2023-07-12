@@ -21,8 +21,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Lib
-        run: npm run build:docs-app
+      - name: Build Lib and app
+        run: |
+          npm run build:lib
+          npm run build:docs-app
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
