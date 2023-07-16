@@ -14,7 +14,7 @@ body:
     attributes:
       label: Question
       placeholder: Please ask us your question
-      value: ""
+      value: "Ask you your question!"
     validations:
       required: false
   - type: input

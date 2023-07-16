@@ -14,7 +14,7 @@ body:
     attributes:
       label: Suggestion
       placeholder: Please tell us your suggestion
-      value: ""
+      value: "What is your suggestion"
     validations:
       required: false
   - type: input
