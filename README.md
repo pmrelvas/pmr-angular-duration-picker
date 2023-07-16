@@ -1,5 +1,9 @@
 # ngx-pmr-duration-picker
 
+[![Build](https://github.com/pmrelvas/pmr-angular-duration-picker/actions/workflows/build-deploy-lib.yml/badge.svg)](https://github.com/pmrelvas/pmr-angular-duration-picker/actions/workflows/build-deploy-lib.yml)
+[![Deploy Docs to GitHub Pages](https://github.com/pmrelvas/pmr-angular-duration-picker/actions/workflows/build-deploy-docs-page.yml/badge.svg)](https://github.com/pmrelvas/pmr-angular-duration-picker/actions/workflows/build-deploy-docs-page.yml)
+
+
 ## Table of contents
 
 - [Overview](#overview)
