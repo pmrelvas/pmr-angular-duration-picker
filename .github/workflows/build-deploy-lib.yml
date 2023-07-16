@@ -40,7 +40,7 @@ jobs:
           VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@$VERSION --json)
           if [[ -z "$VERSION_EXISTS" ]]; then
             echo "Version does not exist on NPM registry."
-            exit 1
+            exit 0
           else
             echo "Version already exists on NPM registry."
           fi
