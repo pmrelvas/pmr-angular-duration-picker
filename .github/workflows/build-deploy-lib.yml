@@ -45,6 +45,10 @@ jobs:
             exit 0
           fi
 
+      - name: Update Git Remote URL
+        run: |
+          git remote set-url origin https://github.com/pmrelvas/pmr-angular-duration-picker.git
+
       - name: Publish Artifact
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         env:
