@@ -208,15 +208,15 @@ npm start
 
 ## Testing
 
-This lib is covered by [cypress](https://www.cypress.io/) tests.
+This lib is covered by [cypress](https://www.cypress.io/) component tests.
 
 Tests are automatically run after every build, but they can also be run through the following command:
 
 ```
-npm run cy:run
+npm run cy:run:component
 ```
 
-or by opening cypress tool in headed mode
+or by opening cypress tool in headed mode and by choosing component tests.
 
 ```
 npm run cy:open
