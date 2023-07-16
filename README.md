@@ -17,6 +17,9 @@
 - [Properties](#properties)
 - [Run test/docs application](#run-testdocs-application)
 - [Testing](#testing)
+- [Build](#build)
+- [Deploy](#deploy)
+- [CI/CD](#cicd)
 - [Issues](#issues)
 
 ## Overview
@@ -221,6 +224,34 @@ or by opening cypress tool in headed mode and by choosing component tests.
 ```
 npm run cy:open
 ```
+
+## Build
+
+We can build this lib using the following command:
+
+```
+ng build ngx-pmr-duration-picker
+```
+
+In development mode, to see the changes on our test application, we can append the `--watch` flag.
+
+To build a production artifact, we can add the `--configuration=production` flag.
+
+## Deploy
+
+We can deploy this lib to a npm registry using the following command:
+
+```
+npm publish dist/ngx-pmr-duration-picker
+```
+
+## CI/CD
+
+We are using GitHub actions workflows to build this lib, run cypress component unit tests on every pull request commit commit.
+
+We also ensure continuous delivery publishing the artifact to npm registry and drafting a new release when merging the PR to master.
+
+For the documentation/test page, we also have a GitHub actions workflow to deploy it to GitHub pages.
 
 ## Issues
 
