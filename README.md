@@ -17,6 +17,7 @@
 - [Properties](#properties)
 - [Run test/docs application](#run-testdocs-application)
 - [Testing](#testing)
+- [Issues](#issues)
 
 ## Overview
 
@@ -220,3 +221,9 @@ or by opening cypress tool in headed mode
 ```
 npm run cy:open
 ```
+
+## Issues
+
+For issues reporting, please fill one of the [following template forms](https://github.com/pmrelvas/pmr-angular-duration-picker/issues/new/choose).
+
+To avoid duplicate issues, please have a look on the existing issues first.
