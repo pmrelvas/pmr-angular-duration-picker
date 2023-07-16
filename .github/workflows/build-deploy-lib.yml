@@ -33,12 +33,13 @@ jobs:
 
       - name: Check NPM version existence
         run: |
-          VERSION=$(npm view ngx-pmr-duration-picker@$npm_package_version --json)
-          if [[ -z "$VERSION" ]]; then
+          VERSION=$(jq -r '.version' package.json)
+          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@$VERSION --json)
+          if [[ -z "$VERSION_EXISTS" ]]; then
             echo "Version does not exist on NPM registry."
+            exit 1
           else
             echo "Version already exists on NPM registry."
-            exit 1
           fi
 
       - name: Publish Artifact
