@@ -37,13 +37,19 @@ jobs:
       - name: Check NPM version existence
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
-          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@$VERSION --json || echo "{}")
+          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@${{env.VERSION}} --json || echo "{}")
           if [[ -z "$VERSION_EXISTS" ]]; then
             echo "Version does not exist on NPM registry."
           else
             echo "Version already exists on NPM registry."
             exit 0
           fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Publish Artifact
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
@@ -58,7 +64,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: VERSION
-          release_name: VERSION
+          tag_name: ${{env.VERSION}}
+          release_name: ${{env.VERSION}}
           draft: true
           prerelease: false
