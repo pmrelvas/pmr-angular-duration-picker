@@ -33,7 +33,7 @@ jobs:
 
       - name: Check NPM version existence
         run: |
-          VERSION=$(jq -r '.version' package.json)
+          VERSION=$(jq -r '.version' projects/ngx-pmr-duration-picker/package.json)
           VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@$VERSION --json)
           if [[ -z "$VERSION_EXISTS" ]]; then
             echo "Version does not exist on NPM registry."
