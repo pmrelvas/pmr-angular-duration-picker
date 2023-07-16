@@ -31,6 +31,17 @@ jobs:
       - name: Run Tests
         run: npm run cy:run:component
 
+      - name: Check NPM version existence
+        id: version-check
+        run: |
+          VERSION=$(npm view your-package-name@$npm_package_version --json)
+          if [[ -z "$VERSION" ]]; then
+            echo "Version does not exist on NPM registry."
+          else
+            echo "Version already exists on NPM registry."
+            exit 1
+          fi
+
       - name: Publish Artifact
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         env:
