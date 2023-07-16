@@ -1,0 +1,33 @@
+name: Question
+description: Ask us a question
+title: "[Question]: "
+labels: ["question", "help wanted"]
+assignees:
+  - pmrelvas
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to ask us your question!
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      placeholder: Please ask us your question
+      value: ""
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+    validations:
+      required: false
+  - type: input
+    id: angular-version
+    attributes:
+      label: Angular Version
+      description: What Angular version are you running?
+    validations:
+      required: false

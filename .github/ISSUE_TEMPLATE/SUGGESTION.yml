@@ -1,0 +1,33 @@
+name: Suggestion
+description: File a suggestion
+title: "[Suggestion]: "
+labels: ["enhancement"]
+assignees:
+  - pmrelvas
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to tell us about your suggestion!
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      placeholder: Please tell us your suggestion
+      value: ""
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+    validations:
+      required: false
+  - type: input
+    id: angular-version
+    attributes:
+      label: Angular Version
+      description: What Angular version are you running?
+    validations:
+      required: false
