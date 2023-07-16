@@ -32,7 +32,6 @@ jobs:
         run: npm run cy:run:component
 
       - name: Check NPM version existence
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
           VERSION=$(npm view ngx-pmr-duration-picker@$npm_package_version --json)
           if [[ -z "$VERSION" ]]; then
