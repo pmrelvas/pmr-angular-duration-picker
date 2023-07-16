@@ -19,7 +19,7 @@ jobs:
       - name: Merge master
         run: |
           git fetch origin
-          git merge-base HEAD origin/master
+          git merge origin/master --no-ff -m "merge for ci"
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
