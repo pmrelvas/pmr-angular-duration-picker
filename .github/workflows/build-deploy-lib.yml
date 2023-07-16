@@ -16,11 +16,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Merge master
-        run: |
-          git fetch origin
-          git merge origin/master --no-ff -m "merge for ci"
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
