@@ -32,9 +32,9 @@ jobs:
         run: npm run cy:run:component
 
       - name: Check NPM version existence
-        id: version-check
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
-          VERSION=$(npm view your-package-name@$npm_package_version --json)
+          VERSION=$(npm view ngx-pmr-duration-picker@$npm_package_version --json)
           if [[ -z "$VERSION" ]]; then
             echo "Version does not exist on NPM registry."
           else
