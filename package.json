@@ -8,7 +8,7 @@
     "build:watch": "ng build ngx-pmr-duration-picker --watch",
     "build:docs-app": "ng build pmr-ngx-duration-picker-test --configuration=production --base-href=https://pmrelvas.github.io/pmr-angular-duration-picker/ --deploy-url=https://pmrelvas.github.io/pmr-angular-duration-picker/",
     "watch": "ng build --watch --configuration development",
-    "publish:lib": "npm publish dist/ngx-pmr-duration-picker",
+    "publish:lib": "npm publish dist/ngx-pmr-duration-picker --access public",
     "cy:open": "cypress open",
     "cy:run:eye": "cypress run",
     "cy:run:component": "cypress run --component"
