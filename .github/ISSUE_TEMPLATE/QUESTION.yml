@@ -1,19 +1,19 @@
-name: Suggestion
-description: File a suggestion
-title: "[Suggestion]: "
-labels: ["enhancement"]
+name: Question
+description: Ask us a question
+title: "[Question]: "
+labels: ["question", "help wanted"]
 assignees:
   - pmrelvas
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to tell us about your suggestion!
+        Thanks for taking the time to ask us your question!
   - type: textarea
-    id: suggestion
+    id: question
     attributes:
-      label: Suggestion
-      placeholder: Please tell us your suggestion
+      label: Question
+      placeholder: Please ask us your question
       value: ""
     validations:
       required: false
