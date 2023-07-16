@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+env:
+  VERSION: $(jq -r '.version' projects/ngx-pmr-duration-picker/package.json)
+
 jobs:
   build-lib:
     runs-on: ubuntu-latest
@@ -31,8 +34,31 @@ jobs:
       - name: Run Tests
         run: npm run cy:run:component
 
+      - name: Check NPM version existence
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+        run: |
+          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@$VERSION --json || echo "{}")
+          if [[ -z "$VERSION_EXISTS" ]]; then
+            echo "Version does not exist on NPM registry."
+          else
+            echo "Version already exists on NPM registry."
+            exit 0
+          fi
+
       - name: Publish Artifact
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: npm run publish:lib
+
+      - name: Create Draft Release on GH
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: VERSION
+          release_name: VERSION
+          draft: true
+          prerelease: false
