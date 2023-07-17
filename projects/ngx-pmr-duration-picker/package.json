@@ -1,6 +1,7 @@
 {
   "name": "ngx-pmr-duration-picker",
   "version": "15.3.0",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0"
