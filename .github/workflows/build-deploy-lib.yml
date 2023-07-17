@@ -13,8 +13,9 @@ env:
 
 jobs:
   build-lib:
-    runs-on:permissions:
-    contents: write  # to create release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create release
 
     steps:
       - name: Checkout Repository
