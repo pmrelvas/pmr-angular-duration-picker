@@ -8,9 +8,6 @@ on:
     branches:
       - master
 
-env:
-  VERSION: $(jq -r '.version' projects/ngx-pmr-duration-picker/package.json)
-
 jobs:
   build-lib:
     runs-on: ubuntu-latest
@@ -36,10 +33,15 @@ jobs:
       - name: Run Tests
         run: npm run cy:run:component
 
+      - name: Extract Version
+        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+        id: extract-version
+        run: echo "::set-output name=version::$(jq -r '.version' projects/ngx-pmr-duration-picker/package.json)"
+
       - name: Check NPM version existence
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
-          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@${{env.VERSION}} --json || echo "{}")
+          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@${{ steps.extract-version.outputs.version }} --json || echo "{}")
           if [[ -z "$VERSION_EXISTS" ]]; then
             echo "Version does not exist on NPM registry."
           else
@@ -68,7 +70,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{env.VERSION}}
-          release_name: ${{env.VERSION}}
-          draft: true
+          tag_name: ${{ steps.extract-version.outputs.version }}
+          release_name: ${{ steps.extract-version.outputs.version }}
+          draft: false
           prerelease: false
