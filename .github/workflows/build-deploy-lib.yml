@@ -13,7 +13,8 @@ env:
 
 jobs:
   build-lib:
-    runs-on: ubuntu-latest
+    runs-on:permissions:
+    contents: write  # to create release
 
     steps:
       - name: Checkout Repository
@@ -56,7 +57,6 @@ jobs:
         run: npm run publish:lib
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Draft Release on GH
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
