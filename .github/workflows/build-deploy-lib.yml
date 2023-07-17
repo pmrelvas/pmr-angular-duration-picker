@@ -55,7 +55,9 @@ jobs:
 
       - name: Publish Artifact
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-        run: npm run publish:lib
+        run: |
+          cp README.md ./dist/ngx-pmr-duration-picker
+          npm run publish:lib
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
