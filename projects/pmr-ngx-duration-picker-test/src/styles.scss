@@ -117,10 +117,15 @@ code {
   top: 1.5rem;
   right: 0.5rem;
   z-index: 1 !important;
+
+  .mat-icon {
+    background-color: white !important;
+  }
 }
 
 table {
-  td, th {
+  td,
+  th {
     padding: 1rem;
   }
 
@@ -143,7 +148,7 @@ table {
     display: grid;
     gap: 0.5rem;
     grid-template-columns: 10ch auto;
-    padding: 0.5rem 1rem
+    padding: 0.5rem 1rem;
   }
 
   td:first-child {
@@ -159,5 +164,4 @@ table {
     font-weight: 700;
     text-transform: capitalize;
   }
-
 }
