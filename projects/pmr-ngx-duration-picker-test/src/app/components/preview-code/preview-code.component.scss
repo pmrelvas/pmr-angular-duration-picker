@@ -2,3 +2,9 @@
   overflow: auto;
   margin: 0 1rem;
 }
+
+@media (max-width: 650px) {
+  .preview {
+    display: block !important;
+  }
+}
