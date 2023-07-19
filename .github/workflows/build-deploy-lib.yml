@@ -54,7 +54,7 @@ jobs:
 
       - name: Publish Artifact
         if: |
-          steps.check-npm-version.outputs.exists
+          !steps.check-npm-version.outputs.exists
             && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
         run: |
           cp README.md ./dist/ngx-pmr-duration-picker
@@ -64,7 +64,7 @@ jobs:
 
       - name: Create Draft Release on GH
         if: |
-          steps.check-npm-version.outputs.exists
+          !steps.check-npm-version.outputs.exists
             && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
         id: create_release
         uses: actions/create-release@v1
