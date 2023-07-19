@@ -39,24 +39,20 @@ jobs:
         run: echo "::set-output name=version::$(jq -r '.version' projects/ngx-pmr-duration-picker/package.json)"
 
       - name: Check NPM version existence
+        id: check-npm-version
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
-          VERSION_EXISTS=$(npm view ngx-pmr-duration-picker@${{ steps.extract-version.outputs.version }} --json || echo "{}")
-          if [[ -z "$VERSION_EXISTS" ]]; then
+          echo "::set-output name=exists=$(npm view ngx-pmr-duration-picker@${{ steps.extract-version.outputs.version }} --json || echo "{}")
+          if [[ -z "$exists" ]]; then
             echo "Version does not exist on NPM registry."
           else
             echo "Version already exists on NPM registry."
-            exit 0
           fi
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
-
       - name: Publish Artifact
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+        if: >
+          check-npm-version.outputs.exists
+          && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
         run: |
           cp README.md ./dist/ngx-pmr-duration-picker
           npm run publish:lib
@@ -64,7 +60,9 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Create Draft Release on GH
-        if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+        if: >
+          check-npm-version.outputs.exists
+          && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
         id: create_release
         uses: actions/create-release@v1
         env:
