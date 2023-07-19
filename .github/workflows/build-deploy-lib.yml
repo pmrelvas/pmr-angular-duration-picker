@@ -42,12 +42,15 @@ jobs:
         id: check-npm-version
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
         run: |
-          echo "::set-output name=exists=$(npm view ngx-pmr-duration-picker@${{ steps.extract-version.outputs.version }} --json || echo "{}")
-          if [[ -z "$exists" ]]; then
+          package_info=$(npm view ngx-pmr-duration-picker@${{ steps.extract-version.outputs.version }} --json || echo "{}")
+          if [ "$package_info" == "{}" ]; then
+            exists="false"
             echo "Version does not exist on NPM registry."
           else
+            exists="true"
             echo "Version already exists on NPM registry."
           fi
+          echo "::set-output name=exists::$exists"
 
       - name: Publish Artifact
         if: |
