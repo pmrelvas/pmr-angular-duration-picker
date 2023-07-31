@@ -21,7 +21,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
   @Input() disableSwitchMode = false;
-  @Input() durationLabel = 'Duration';
+  @Input() label = 'Duration';
   @Output() valid = new EventEmitter(true);
   isValid = true;
 

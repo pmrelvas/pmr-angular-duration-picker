@@ -1,7 +1,6 @@
 import { FormsModule } from "@angular/forms";
 import { PmrDurationPickerComponent } from "./pmr-duration-picker.component";
 import { PmrDurationAtomComponent } from "../pmr-duration-atom/pmr-duration-atom.component";
-import { contains } from "cypress/types/jquery";
 
 describe('PmrDurationPickerComponent', () => {
   it('should mount', () => {
@@ -148,7 +147,7 @@ describe('PmrDurationPickerComponent', () => {
   });
 
   it('should be able to override duration label', () => {
-    cy.mount(`<pmr-duration-picker [(ngModel)]="val" [durationLabel]="'PMRXPTO'"></pmr-duration-picker>`, {
+    cy.mount(`<pmr-duration-picker [(ngModel)]="val" [label]="'PMRXPTO'"></pmr-duration-picker>`, {
       imports: [FormsModule],
       declarations: [PmrDurationPickerComponent, PmrDurationAtomComponent],
       componentProperties: {
