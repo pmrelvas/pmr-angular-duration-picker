@@ -10,40 +10,42 @@
   <!-- ngModel -->
   <app-preview-code [title]="'NgModel'" [mode]="ngModelExample.mode" [htmlCode]="ngModelExample.htmlCode"
     [tsCode]="ngModelExample.tsCode">
-    <pmr-duration-picker [(ngModel)]="ngModelExample.duration"></pmr-duration-picker>
+    <pmr-duration-picker [(ngModel)]="ngModelExample.duration" [label]="'NgModel'"></pmr-duration-picker>
   </app-preview-code>
 
   <!-- form control -->
   <app-preview-code [title]="'FormControl'" [mode]="formControlExample.mode" [htmlCode]="formControlExample.htmlCode"
     [tsCode]="formControlExample.tsCode">
     <form [formGroup]="formControlExample.formGroup">
-      <pmr-duration-picker formControlName="duration"></pmr-duration-picker>
+      <pmr-duration-picker formControlName="duration" [label]="'FormControl'"></pmr-duration-picker>
     </form>
   </app-preview-code>
 
   <!-- time -->
   <app-preview-code [title]="'Time'" [mode]="timeExample.mode" [htmlCode]="timeExample.htmlCode"
     [tsCode]="timeExample.tsCode">
-    <pmr-duration-picker [displayedItems]="timeExample.displayedItems"
+    <pmr-duration-picker
+      [displayedItems]="timeExample.displayedItems"
+      [label]="'Time'"
       [(ngModel)]="timeExample.duration"></pmr-duration-picker>
   </app-preview-code>
 
   <!-- without label -->
   <app-preview-code [title]="'Without Label'" [mode]="withoutLabelExample.mode"
     [htmlCode]="withoutLabelExample.htmlCode" [tsCode]="withoutLabelExample.tsCode">
-    <pmr-duration-picker [disableLabel]="true" [(ngModel)]="withoutLabelExample.duration"></pmr-duration-picker>
+    <pmr-duration-picker [disableLabel]="true" [(ngModel)]="withoutLabelExample.duration" [label]="'Without Label'"></pmr-duration-picker>
   </app-preview-code>
 
   <!-- increased font -->
   <app-preview-code [title]="'Increased Font'" [mode]="increasedFontExample.mode"
     [htmlCode]="increasedFontExample.htmlCode" [tsCode]="increasedFontExample.tsCode">
-    <pmr-duration-picker style="font-size: 30px" [(ngModel)]="increasedFontExample.duration"></pmr-duration-picker>
+    <pmr-duration-picker style="font-size: 30px" [(ngModel)]="increasedFontExample.duration" [label]="'Increased Font'"></pmr-duration-picker>
   </app-preview-code>
 
   <!-- disable switch mode -->
   <app-preview-code [title]="'Disable Switch Mode'" [mode]="disableSwitchExample.mode"
     [htmlCode]="disableSwitchExample.htmlCode" [tsCode]="disableSwitchExample.tsCode">
-    <pmr-duration-picker [disableSwitchMode]="true" [(ngModel)]="disableSwitchExample.duration"></pmr-duration-picker>
+    <pmr-duration-picker [disableSwitchMode]="true" [(ngModel)]="disableSwitchExample.duration" [label]="'Disable Switch Mode'"></pmr-duration-picker>
   </app-preview-code>
 
 </section>

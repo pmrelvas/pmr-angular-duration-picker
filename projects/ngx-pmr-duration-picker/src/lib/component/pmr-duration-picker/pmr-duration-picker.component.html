@@ -1,4 +1,5 @@
 <section class="pmr-duration-picker">
+  <label data-cy="label-duration" *ngIf="!isStringMode()">{{ label }}</label>
   <div class="pmr-duration-picker-wrapper">
     <section class="pmr-duration-picker-items" *ngIf="isPrettyMode()">
       <pmr-duration-atom *ngIf="displayedItems.includes('Y')" label="Y" [value]="durationMap.get('Y') || 0"
@@ -26,7 +27,7 @@
     <div class="pmr-duration-picker-str" *ngIf="isStringMode()">
       <input type="text" [class.filled]="durationStr" [class.invalid]="!isValid" [ngModel]="durationStr"
         data-cy="input-duration-picker-str" (ngModelChange)="onStrValueChange($event)">
-      <label data-cy="label-duration">{{ durationLabel }}</label>
+      <label data-cy="label-duration">{{ label }}</label>
     </div>
 
     <button class="btn-switch-mode" data-cy="btn-switch-mode" (click)="onSwitchModeClick()" *ngIf="!disableSwitchMode">
