@@ -4,6 +4,12 @@
   display: flex;
   flex-direction: column;
   padding-top: 0.5em;
+
+  label {
+    font-size: 0.8em;
+    padding: 0.5rem 0.3em;
+    color: $form-field;
+  }
 }
 
 .pmr-duration-picker-wrapper {
