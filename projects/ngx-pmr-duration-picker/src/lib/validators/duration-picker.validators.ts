@@ -1,7 +1,9 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { PmrDurationPickerComponent } from 'ngx-pmr-duration-picker';
 
 export class DurationPickerValidators {
+  static readonly DURATION_REGEX =
+  /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:(?:T(?=\d+[HMS]))(\d+)?H?(\d+)?M?(\d+)?S?)?$/;
+
   public static required(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const isInvalidDuration =
@@ -18,7 +20,7 @@ export class DurationPickerValidators {
 
   public static invalidDurationStr(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const isInvalid = PmrDurationPickerComponent.DURATION_REGEX.test(
+      const isInvalid = DurationPickerValidators.DURATION_REGEX.test(
         control.value
       );
 
