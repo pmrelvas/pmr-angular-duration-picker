@@ -130,7 +130,6 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   onValueChange(unit: string, newVal: number): void {
     this.markAsTouched();
-    console.table(newVal);
     this.durationMap.set(unit, newVal);
     this.durationStr = this.buildDurationStr();
     this.onChange(this.durationStr);
@@ -167,7 +166,6 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   validateDuration(): void {
-    console.table(this.durationStr);
     this.isValid = this.DURATION_REGEX.test(this.durationStr);
     this.valid.emit(this.valid);
   }
