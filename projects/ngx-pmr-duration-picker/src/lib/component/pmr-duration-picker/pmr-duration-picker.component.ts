@@ -16,7 +16,7 @@ import { DurationPickerMode } from '../../duration-picker-mode';
 })
 export class PmrDurationPickerComponent implements ControlValueAccessor {
   readonly DURATION_REGEX =
-    /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:(?:T(?=\d+[HMS]))(\d+)?H?(\d+)?M?(\d+)?S?)?$/;
+  /^(?!P$)(?!PT$)^P(?:(?=\d+[YMWDSH])[YMWD])?(?:(?=\d+[YMWDSH])\d+Y)?(?:(?=\d+[YMWDSH])\d+M)?(?:(?=\d+[YMWDSH])\d+W)?(?:(?=\d+[YMWDSH])\d+D)?(?:(?:T(?=\d+[HMS]))(?=\d+[HMS])(\d+)?H)?(?:(?=\d+[HMS])\d+M)?(?:(?=\d+[HMS])\d+S)?$/;
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
@@ -64,7 +64,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   buildDurationStr(): string {
-    let durStr = 'P';
+    let durStr = '';
     // date fields
     if (this.durationMap.get('Y')) {
       durStr += this.durationMap.get('Y') + 'Y';
@@ -80,19 +80,23 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     }
 
     // time fields
-    if (this.hasTimeFields()) {
-      durStr += 'T';
-    }
+    let timeDurStr = '';
     if (this.durationMap.get('TH')) {
-      durStr += this.durationMap.get('TH') + 'H';
+      timeDurStr += this.durationMap.get('TH') + 'H';
     }
     if (this.durationMap.get('TM')) {
-      durStr += this.durationMap.get('TM') + 'M';
+      timeDurStr += this.durationMap.get('TM') + 'M';
     }
     if (this.durationMap.get('TS')) {
-      durStr += this.durationMap.get('TS') + 'S';
+      timeDurStr += this.durationMap.get('TS') + 'S';
     }
 
+    if (durStr != '' || timeDurStr != '') {
+      durStr = 'P' + durStr;
+    }
+    if (timeDurStr != '') {
+      durStr += 'T' + timeDurStr;
+    }
     return durStr;
   }
 
@@ -123,13 +127,6 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
       durationMap.set(unit, value);
     }
     return durationMap;
-  }
-
-  hasTimeFields(): boolean {
-    return !(this.durationMap.get('TH') === 0 || this.durationMap.get('TH') == null) ||
-      !(this.durationMap.get('TM') === 0 || this.durationMap.get('TM') == null) ||
-      !(this.durationMap.get('TS') === 0 || this.durationMap.get('TS') == null);
-    ;
   }
 
   onValueChange(unit: string, newVal: number): void {
