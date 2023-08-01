@@ -20,7 +20,7 @@ export class DurationPickerValidators {
 
   public static invalidDurationStr(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      const isInvalid = DurationPickerValidators.DURATION_REGEX.test(
+      const isInvalid = !DurationPickerValidators.DURATION_REGEX.test(
         control.value
       );
 
