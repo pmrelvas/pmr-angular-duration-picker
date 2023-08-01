@@ -15,7 +15,7 @@ import { DurationPickerMode } from '../../duration-picker-mode';
   ],
 })
 export class PmrDurationPickerComponent implements ControlValueAccessor {
-  readonly DURATION_REGEX =
+  public static readonly DURATION_REGEX =
     /^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:(?:T(?=\d+[HMS]))(\d+)?H?(\d+)?M?(\d+)?S?)?$/;
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
@@ -166,7 +166,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   validateDuration(): void {
-    this.isValid = this.DURATION_REGEX.test(this.durationStr);
+    this.isValid = PmrDurationPickerComponent.DURATION_REGEX.test(this.durationStr);
     this.valid.emit(this.valid);
   }
 }
