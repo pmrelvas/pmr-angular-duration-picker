@@ -37,7 +37,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   durationStr = this.buildDurationStr();
   onChange = (durationStr: string) => {};
-  onTouched = () => {};
+  onTouched = (t: any) => {};
   isTouched = false;
   isDisabled = false;
   mode = DurationPickerMode.PRETTY;
@@ -52,11 +52,15 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any): void {
-    fn = this.onTouched;
+    this.onTouched = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  onAtomFocusOut(): void {
+    this.markAsTouched();
   }
 
   buildDurationStr(): string {
@@ -129,14 +133,12 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   onValueChange(unit: string, newVal: number): void {
-    this.markAsTouched();
     this.durationMap.set(unit, newVal);
     this.durationStr = this.buildDurationStr();
     this.onChange(this.durationStr);
   }
 
   onStrValueChange(newVal: string): void {
-    this.markAsTouched();
     this.writeValue(newVal);
     this.validateDuration();
     this.onChange(this.durationStr);
@@ -144,7 +146,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
 
   markAsTouched(): void {
     if (!this.isTouched) {
-      this.onTouched();
+      this.onTouched(true);
       this.isTouched = true;
     }
   }

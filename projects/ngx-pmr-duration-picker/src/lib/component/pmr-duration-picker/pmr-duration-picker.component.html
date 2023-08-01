@@ -2,25 +2,25 @@
   <label data-cy="label-duration" *ngIf="!isStringMode()">{{ label }}</label>
   <div class="pmr-duration-picker-wrapper">
     <section class="pmr-duration-picker-items" *ngIf="isPrettyMode()">
-      <pmr-duration-atom *ngIf="displayedItems.includes('Y')" label="Y" [value]="durationMap.get('Y') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('Y')" label="Y" [value]="durationMap.get('Y') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('Y', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('M')" label="M" [value]="durationMap.get('M') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('M')" label="M" [value]="durationMap.get('M') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('M', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('W')" label="W" [value]="durationMap.get('W') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('W')" label="W" [value]="durationMap.get('W') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('W', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('D')" label="D" [value]="durationMap.get('D') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('D')" label="D" [value]="durationMap.get('D') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('D', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('TH')" label="H" [value]="durationMap.get('TH') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('TH')" label="H" [value]="durationMap.get('TH') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('TH', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('TM')" label="M" [value]="durationMap.get('TM') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('TM')" label="M" [value]="durationMap.get('TM') || 0" (focusOut)="onAtomFocusOut()"
         (valueChange)="onValueChange('TM', $event)" [disabled]="isDisabled"></pmr-duration-atom>
 
-      <pmr-duration-atom *ngIf="displayedItems.includes('TS')" label="S" [value]="durationMap.get('TS') || 0"
+      <pmr-duration-atom *ngIf="displayedItems.includes('TS')" label="S" [value]="durationMap.get('TS') || 0" (focusOut)="onAtomFocusOut"
         (valueChange)="onValueChange('TS', $event)" [disabled]="isDisabled"></pmr-duration-atom>
     </section>
 
@@ -43,7 +43,8 @@
       </svg>
     </button>
 
-    <span class="pmr-duration-picker-label" data-cy="duration-picker-label" *ngIf="!disableLabel">{{ durationStr }}</span>
+    <span class="pmr-duration-picker-label" data-cy="duration-picker-label" *ngIf="!disableLabel">{{ durationStr
+      }}</span>
   </div>
 
 </section>

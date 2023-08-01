@@ -11,8 +11,13 @@ export class PmrDurationAtomComponent {
   @Input() value: number | undefined = 0;
   @Input() disabled = false;
   @Output() valueChange = new EventEmitter<number>();
+  @Output() focusOut = new EventEmitter<boolean>();
 
   onValueChange(newVal: number): void {
     this.valueChange.next(newVal);
+  }
+
+  onFocusOut(): void {
+    this.focusOut.next(true);
   }
 }

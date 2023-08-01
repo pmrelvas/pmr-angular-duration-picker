@@ -7,6 +7,7 @@
       [ngModel]="value || null"
       [attr.disabled]="disabled"
       (ngModelChange)="onValueChange($event)"
+      (focusout)="onFocusOut()"
     />
   <label class="pmr-duration-atom-label">{{ label }}</label>
   </div>

@@ -12,7 +12,7 @@ export class DurationPickerValidators {
         control.value === 'P' ||
         control.value === 'PT';
 
-      return control.dirty && isInvalidDuration
+      return control.touched && isInvalidDuration
         ? { durationRequired: true }
         : null;
     };
