@@ -144,6 +144,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   markAsTouched(): void {
     if (!this.isTouched) {
       this.onTouched(true);
+      this.onChange('');
       this.isTouched = true;
     }
   }
