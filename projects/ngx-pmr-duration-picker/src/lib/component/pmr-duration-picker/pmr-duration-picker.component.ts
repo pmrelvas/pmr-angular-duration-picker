@@ -1,29 +1,38 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  Optional,
+  Output,
+  Self,
+} from '@angular/core';
+import {
+  AbstractControl,
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
 import { DurationPickerMode } from '../../duration-picker-mode';
 
 @Component({
   selector: 'pmr-duration-picker',
   templateUrl: 'pmr-duration-picker.component.html',
-  styleUrls: ['pmr-duration-picker.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: PmrDurationPickerComponent,
-    }
-  ],
+  styleUrls: ['pmr-duration-picker.component.scss']
 })
-export class PmrDurationPickerComponent implements ControlValueAccessor {
+export class PmrDurationPickerComponent
+  implements ControlValueAccessor, AfterViewInit
+{
   readonly DURATION_REGEX =
-  /^(?!P$)(?!PT$)^P(?:(?=\d+[YMWDSH])[YMWD])?(?:(?=\d+[YMWDSH])\d+Y)?(?:(?=\d+[YMWDSH])\d+M)?(?:(?=\d+[YMWDSH])\d+W)?(?:(?=\d+[YMWDSH])\d+D)?(?:(?:T(?=\d+[HMS]))(?=\d+[HMS])(\d+)?H)?(?:(?=\d+[HMS])\d+M)?(?:(?=\d+[HMS])\d+S)?$/;
+    /^(?!P$)(?!PT$)^P(?:(?=\d+[YMWDSH])[YMWD])?(?:(?=\d+[YMWDSH])\d+Y)?(?:(?=\d+[YMWDSH])\d+M)?(?:(?=\d+[YMWDSH])\d+W)?(?:(?=\d+[YMWDSH])\d+D)?(?:(?:T(?=\d+[HMS]))(?=\d+[HMS])(\d+)?H)?(?:(?=\d+[HMS])\d+M)?(?:(?=\d+[HMS])\d+S)?$/;
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
   @Input() disableSwitchMode = false;
   @Input() label = 'Duration';
   @Output() valid = new EventEmitter(true);
-  isValid = true;
 
   durationMap: Map<string, number> = new Map([
     ['Y', 0],
@@ -41,6 +50,26 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   isTouched = false;
   isDisabled = false;
   mode = DurationPickerMode.PRETTY;
+  formControl!: AbstractControl<any, any>;
+  isInvalid = false;
+
+  constructor(@Optional() @Self() public ngControl: NgControl) {
+    if (ngControl != null) {
+      ngControl.valueAccessor = this;
+    }
+  }
+
+  ngAfterViewInit(): void {
+    const control = this.ngControl && this.ngControl.control;
+    if (control) {
+      this.formControl = control;
+      // this needs to be here to have the form control updated
+      this.formControl.valueChanges
+        .subscribe(() => {
+          this.checkError();
+        });
+    }
+  }
 
   writeValue(durationStr: string): void {
     this.durationStr = durationStr;
@@ -149,6 +178,16 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
     }
   }
 
+  checkError(): void {
+    console.log('form: ', this.formControl);
+    if (this.formControl?.errors) {
+      this.isInvalid = true;
+    } else {
+      this.isInvalid = false;
+      console.log('valid');
+    }
+  }
+
   onSwitchModeClick(): void {
     if (this.mode === DurationPickerMode.PRETTY) {
       this.mode = DurationPickerMode.STRING;
@@ -166,7 +205,7 @@ export class PmrDurationPickerComponent implements ControlValueAccessor {
   }
 
   validateDuration(): void {
-    this.isValid = this.DURATION_REGEX.test(this.durationStr);
+    this.isInvalid = !this.DURATION_REGEX.test(this.durationStr);
     this.valid.emit(this.valid);
   }
 }

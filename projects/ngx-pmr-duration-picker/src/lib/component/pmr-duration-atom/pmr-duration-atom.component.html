@@ -2,6 +2,7 @@
   <div class="pmr-duration-atom-content">
     <input
       class="pmr-duration-atom-value"
+      [class.pmr-duration-atom-value-invalid]="isInvalid"
       [class.filled]="value"
       type="number"
       [ngModel]="value || null"
@@ -9,6 +10,6 @@
       (ngModelChange)="onValueChange($event)"
       (focusout)="onFocusOut()"
     />
-  <label class="pmr-duration-atom-label">{{ label }}</label>
+  <label class="pmr-duration-atom-label" [class.pmr-duration-atom-label-invalid]="isInvalid">{{ label }}</label>
   </div>
 </section>

@@ -12,6 +12,15 @@
     padding-bottom: 0.2em;
   }
 
+  .pmr-duration-atom-label-invalid {
+    color: $form-field-error !important;
+  }
+
+  .pmr-duration-atom-value-invalid {
+    color: $form-field-error !important;
+    border-color: $form-field-error !important;
+  }
+
   .pmr-duration-atom-content {
     position: relative;
     width: 2.4em;

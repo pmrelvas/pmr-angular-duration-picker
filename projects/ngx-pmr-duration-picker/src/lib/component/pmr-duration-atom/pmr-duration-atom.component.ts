@@ -10,6 +10,7 @@ export class PmrDurationAtomComponent {
   @Input() label = '';
   @Input() value: number | undefined = 0;
   @Input() disabled = false;
+  @Input() isInvalid = false;
   @Output() valueChange = new EventEmitter<number>();
   @Output() focusOut = new EventEmitter<boolean>();
 

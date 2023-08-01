@@ -12,6 +12,10 @@
   }
 }
 
+.label-duration-invalid {
+  color: $form-field-error !important;
+}
+
 .pmr-duration-picker-wrapper {
   display: flex;
   font-family: "Rubik", "Roboto", sans-serif;
