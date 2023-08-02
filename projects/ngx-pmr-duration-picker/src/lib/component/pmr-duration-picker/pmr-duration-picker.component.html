@@ -27,7 +27,7 @@
         [disabled]="isDisabled"></pmr-duration-atom>
 
       <pmr-duration-atom *ngIf="displayedItems.includes('TS')" label="S" [value]="durationMap.get('TS') || 0"
-        [isInvalid]="isInvalidn" (focusOut)="onAtomFocusOut" (valueChange)="onValueChange('TS', $event)"
+        [isInvalid]="isInvalid" (focusOut)="onAtomFocusOut" (valueChange)="onValueChange('TS', $event)"
         [disabled]="isDisabled"></pmr-duration-atom>
     </section>
 

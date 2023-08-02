@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   AfterViewInit,
   Component,
   EventEmitter,
@@ -11,8 +10,6 @@ import {
 import {
   AbstractControl,
   ControlValueAccessor,
-  FormControl,
-  NG_VALUE_ACCESSOR,
   NgControl,
 } from '@angular/forms';
 import { DurationPickerMode } from '../../duration-picker-mode';
@@ -26,7 +23,7 @@ export class PmrDurationPickerComponent
   implements ControlValueAccessor, AfterViewInit
 {
   readonly DURATION_REGEX =
-    /^(?!P$)(?!PT$)^P(?:(?=\d+[YMWDSH])[YMWD])?(?:(?=\d+[YMWDSH])\d+Y)?(?:(?=\d+[YMWDSH])\d+M)?(?:(?=\d+[YMWDSH])\d+W)?(?:(?=\d+[YMWDSH])\d+D)?(?:(?:T(?=\d+[HMS]))(?=\d+[HMS])(\d+)?H)?(?:(?=\d+[HMS])\d+M)?(?:(?=\d+[HMS])\d+S)?$/;
+    /^(?!P$)^P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:(?:T(?=\d+[HMS]))(\d+)?H?(\d+)?M?(\d+)?S?)?$/;
 
   @Input() displayedItems = ['Y', 'M', 'W', 'D', 'TH', 'TM', 'TS'];
   @Input() disableLabel = false;
@@ -65,7 +62,7 @@ export class PmrDurationPickerComponent
       this.formControl = control;
       // this needs to be here to have the form control updated
       this.formControl.valueChanges
-        .subscribe(() => {
+        .subscribe((val) => {
           this.checkError();
         });
     }
@@ -179,12 +176,10 @@ export class PmrDurationPickerComponent
   }
 
   checkError(): void {
-    console.log('form: ', this.formControl);
     if (this.formControl?.errors) {
       this.isInvalid = true;
     } else {
       this.isInvalid = false;
-      console.log('valid');
     }
   }
 
